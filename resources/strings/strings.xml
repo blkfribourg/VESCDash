@@ -1,0 +1,209 @@
+<strings>
+    <string id="AppName">VESCDash</string>
+    <string id="firstConnStr">Profile $1$ 1st connection\nPlease turn on your wheel\n and wait for connection\n\nensure only one wheel is ON!\n\nIf you enjoy this app :\n ko-fi.com/wheeldash</string>
+    <string id="connectedStr">Profile $1$ connected !\n\nSaving wheel unique identifier</string>
+    <!-- Strings, that are used in Connect IQ Settings menu, like 
+        one you see in Garmin Express or Garmin Connect Mobile -->
+    <string id="defaultProfile">Profile to use by default</string>
+    <string id="profile0">Last used profile</string>
+    <string id="profile1">Profile 1</string>      
+    <string id="profile2">Profile 2</string>
+    <string id="profile3">Profile 3</string>
+    <string id="useProfileSelector">Profile selection on startup (using watch)</string>
+    <string id="wheelName_p1">Wheel name (Profile 1)</string>
+    <string id="wheelName_p2">Wheel name (Profile 2)</string>
+    <string id="wheelName_p3">Wheel name (Profile 3)</string>
+    
+    <string id="recordActivityButtonMap_p1">Button mapping to activity recording view (Profile 1)</string>
+    <string id="recordActivityButtonMap_p2">Button mapping to activity recording view (Profile 2)</string>
+    <string id="recordActivityButtonMap_p3">Button mapping to activity recording view (Profile 3)</string>
+<!--
+    <string id="cycleLightButtonMap_p1">Button mapping to cycle light mode (Profile 1)</string>
+    <string id="cycleLightButtonMap_p2">Button mapping to cycle light mode (Profile 2)</string>
+    <string id="cycleLightButtonMap_p3">Button mapping to cycle light mode (Profile 3)</string>
+
+    <string id="beepButtonMap_p1">Button mapping to wheel beep (horn mode) (Profile 1)</string>
+    <string id="beepButtonMap_p2">Button mapping to wheel beep (horn mode) (Profile 2)</string>
+    <string id="beepButtonMap_p3">Button mapping to wheel beep (horn mode) (Profile 3)</string>
+
+    <string id="lockButtonMap_p1">DONOTUSE Button mapping to wheel lock/unlock (Profile 1)</string>
+    -->
+    <string id="none">None</string>
+    <string id="startStopButton">Start/Stop button</string>
+    <string id="middleButton">Middle button</string>
+    <string id="downButton">Down button</string>
+    
+    <string id="cmdQueueDelay_p1">BLE command queuing delay (low value may cause app crash) (Profile 1)</string>
+    <string id="cmdQueueDelay_p2">BLE command queuing delay (low value may cause app crash) (Profile 2)</string>
+    <string id="cmdQueueDelay_p3">BLE command queuing delay (low value may cause app crash) (Profile 3)</string>
+    <string id="cmdQueueDelay_ErrorMessage">Value should be in a range of 10 to 400</string>
+    
+    <string id="VESCCanId_p1">Can id of VESC if using a VESC Express module (Profile 1)</string>
+    <string id="VESCCanId_p2">Can id of VESC if using a VESC Express module (Profile 2)</string>
+    <string id="VESCCanId_p3">Can id of VESC if using a VESC Express module (Profile 3)</string>
+        
+    <string id="currentCorrection_p1">Current correction type (Profile 1)</string>
+    <string id="currentCorrection_p2">Current correction type (Profile 2)</string>
+    <string id="currentCorrection_p3">Current correction type (Profile 3)</string>
+    <string id="currentCorrection0">None</string>
+    <string id="currentCorrection1">Negative</string>
+    <string id="currentCorrection2">Absolute</string>
+
+    <string id="maxTemperature_p1">Maximum operating temperature (°C or °F) (Profile 1)</string>
+    <string id="maxTemperature_p2">Maximum operating temperature (°C or °F) (Profile 2)</string>
+    <string id="maxTemperature_p3">Maximum operating temperature (°C or °F) (Profile 3)</string>
+    <string id="maxTemperature_ErrorMessage">Value should be in a range of 0 to 250</string>
+
+    <string id="updateDelay">UI refresh rate and in msec</string>
+    <string id="updateDelay_ErrorMessage">Value should be in a range of 100 msec to 1000 msec</string>
+   
+    
+    <string id="useMiles">Use Miles</string>
+    <string id="useFahrenheit">Use Fahrenheit</string>
+
+    <string id="orangeColoringThreshold_p1">percentage threshold to color "top bar" with orange (Profile 1)</string>
+    <string id="orangeColoringThreshold_p2">percentage threshold to color "top bar" with orange (Profile 2)</string>
+    <string id="orangeColoringThreshold_p3">percentage threshold to color "top bar" with orange (Profile 3) </string>
+    <string id="coloringThreshold_ErrorMessage">Value out of range</string>
+
+    <string id="redColoringThreshold_p1">percentage threshold to color "top bar" bar with red (Profile 1)</string>
+    <string id="redColoringThreshold_p2">percentage threshold to color "top bar" bar with red (Profile 2)</string>
+    <string id="redColoringThreshold_p3">percentage threshold to color "top bar" bar with red (Profile 3)</string>
+
+    <string id="voltageCorrectionFactor_p1">Voltage Correction Factor (Gotway/Begode only), 1 for 67.2V, 1.25 for 84V ... (Profile 1)</string>
+    <string id="voltageCorrectionFactor_p2">Voltage Correction Factor (Gotway/Begode only), 1 for 67.2V, 1.25 for 84V ... (Profile 2)</string>
+    <string id="voltageCorrectionFactor_p3">Voltage Correction Factor (Gotway/Begode only), 1 for 67.2V, 1.25 for 84V ... (Profile 3)</string>
+    <string id="voltageCorrectionFactor_ErrorMessage">Value out of range</string>
+
+    <string id="voltageSagIndicatorThresh_p1">Voltage Sag Threshold for Sag Indicator (Profile 1)</string>
+    <string id="voltageSagIndicatorThresh_p2">Voltage Sag Threshold for Sag Indicator (Profile 2)</string>
+    <string id="voltageSagIndicatorThresh_p3">Voltage Sag Threshold for Sag Indicator (Profile 3)</string>
+    <string id="voltageSagIndicatorThresh_ErrorMessage">Value out of range</string>
+
+
+
+    <string id="speedCorrectionFactor_p1">Speed Correction Factor, to adjust wheel reported speed (Profile 1)</string>
+    <string id="speedCorrectionFactor_p2">Speed Correction Factor, to adjust wheel reported speed (Profile 2)</string>
+    <string id="speedCorrectionFactor_p3">Speed Correction Factor, to adjust wheel reported speed (Profile 3)</string>
+
+    <string id="speedCorrectionFactor_ErrorMessage">Value out of range</string>
+
+    <string id="mainNumber_p1">Value to display on the main numeric indicator (center of the screen) (Profile 1)</string>
+    <string id="mainNumber_p2">Value to display on the main numeric indicator (center of the screen) (Profile 2)</string>
+    <string id="mainNumber_p3">Value to display on the main numeric indicator (center of the screen) (Profile 3)</string>
+
+    <string id="topBar_p1">Value to display on the top bar (Profile 1)</string>
+    <string id="topBar_p2">Value to display on the top bar (Profile 2)</string>
+    <string id="topBar_p3">Value to display on the top bar (Profile 3)</string>
+        
+    <string id="speed_str">Speed</string>
+    <string id="PWM_str">PWM</string>
+    <string id="battPerc_str">PWM</string>
+    <string id="maxSpeed_p1">Displayed speed limit : used to scale the top arc if Top bar value set to Speed (Profile 1)</string>
+    <string id="maxSpeed_p2">Displayed speed limit : used to scale the top arc if Top bar value set to Speed (Profile 2)</string>
+    <string id="maxSpeed_p3">Displayed speed limit : used to scale the top arc if Top bar value set to Speed (Profile 3)</string>
+    <string id="maxSpeed_ErrorMessage">Value out of range</string>
+    
+
+
+    <string id="alarmThreshold_PWM_p1">Percentage of PWM that trigger an alarm (Profile 1)</string>
+    <string id="alarmThreshold_PWM_p2">Percentage of PWM that trigger an alarm (Profile 2)</string>
+    <string id="alarmThreshold_PWM_p3">Percentage of PWM that trigger an alarm (Profile 3)</string>
+    <string id="alarmThreshold_PWM_ErrorMessage">Value out of range</string>
+
+    <string id="alarmThreshold_speed_p1">Speed that trigger an alarm (Profile 1)</string>
+    <string id="alarmThreshold_speed_p2">Speed that trigger an alarm (Profile 2)</string>
+    <string id="alarmThreshold_speed_p3">Speed that trigger an alarm (Profile 3)</string>
+    <string id="alarmThreshold_speed_ErrorMessage">Value out of range</string>
+
+    <string id="alarmThreshold_temp_p1">Temperature that trigger an alarm (Profile 1)</string>
+    <string id="alarmThreshold_temp_p2">Temperature that trigger an alarm (Profile 2)</string>
+    <string id="alarmThreshold_temp_p3">Temperature that trigger an alarm (Profile 3)</string>
+    <string id="alarmThreshold_temp_ErrorMessage">Value out of range</string>
+   
+    <string id="UIsettings">App UI settings</string>
+    <string id="UIsettingsDescription">UI settings, please be aware that watch battery usage will be impacted by refresh rate (battery usage / accuracy trade-off)</string>
+
+    <string id="PWMSettings">Calculated PWM variables</string>
+    <string id="PWMSettingsDescription">Be fully aware of what you are doing here as it will impact displayed PWM value and associated alarm. Use uncorrected speed for cut-out speed variable</string>
+
+   <string id="alarms">Alarms settings</string>
+   <string id="alarmsDescription">set the alarm threshold to 0 to disable alarms</string>
+
+   <string id="activity">Activity recording settings</string>
+   <string id="activityDescription">Automatic activity recording will automatically start and save an activity when launching/exiting the app. Activity save on exit will allow manually started activities to be automatically saved when the app is exited.</string>
+    
+    <string id="activityRecordingOnStartup">Automatic activity recording</string>
+    <string id="activitySavingOnExit">Activity save on exit</string>
+
+   <string id="wheelSettings">Wheels settings</string>
+   <string id="wheelSettingsDescription">Adjust voltage correction for your wheel (mandatory for the reported values to be accurate).</string>
+
+   <string id="rideStats">Ride info displayed on the bottom</string>
+   <string id="rideStatsDescription">Select the ride info to be displayed, if more than one selected, selected info will be diplayed in a loop every 2 sec </string>
+
+   <string id="averageMovingSpeedStatistic">Display average moving speed (when speed >3 km/h or 2 mph)</string>
+   <string id="topSpeedStatistic">Display top speed</string>
+   <string id="watchBatteryConsumptionStatistic">Display watch battery consumption (%/h)</string>
+   
+   <string id="totalDistanceStatistic">Display total distance</string>
+   <string id="tripDistanceStatistic">Display current trip distance</string>
+   <string id="voltageStatistic">Display voltage</string>
+   <string id="watchBatteryStatistic">Display watch battery</string>
+   <string id="profileName">Display profile name</string>
+   <string id="debugMode">Enable Debug Mode (view)</string>
+    <!-- FIT Strings-->
+
+    <string id="speed_graph_label">Speed</string>
+    <string id="speed_label">Speed</string>
+    <string id="speed_unit_kmh">km/h</string>
+    <string id="speed_unit_mph">mph</string>
+    <string id="pwm_graph_label">PWM</string>
+    <string id="pwm_label">PWM</string>
+    <string id="pwm_unit"></string>
+    <string id="voltage_graph_label">Voltage</string>
+    <string id="voltage_label">Voltage</string>
+    <string id="voltage_unit">V</string>
+    <string id="current_graph_label">Current</string>
+    <string id="current_label">Current</string>
+    <string id="current_unit">A</string>
+    <string id="power_graph_label">Motor power</string>
+    <string id="power_label">Motor power</string>
+    <string id="power_unit">W</string>
+    <string id="temperature_graph_label">MB Temperature</string>
+    <string id="temperature_label">MB Temperature</string>
+    <string id="temperature_unit">°C</string>
+    <string id="temperature_unit_F">°F</string>
+    <string id="tripDistance_label">Trip distance</string>
+    <string id="distance_unit_km">km</string>
+    <string id="distance_unit_miles">miles</string>
+    <string id="maxSpeed_label">Session max speed</string>
+    
+    <string id="maxPWM_label">Session max PWM</string>
+    
+    <string id="percentage_unit">%</string>
+    <string id="maxCurrent_label">Session max current</string>
+  
+    <string id="maxPower_label">Session max power</string>
+   
+    <string id="maxTemperature_label">Session max temperature</string>
+    <string id="minTemperature_label">Session min temperature</string>
+
+    <string id="avgSpeed_label">Session average speed</string>
+    
+    <string id="avgCurrent_label">Session average current</string>
+    <string id="avgCurrent_unit">A</string>
+    <string id="avgPower_label">Session average power</string>
+    <string id="avgPower_unit">W</string>
+    <string id="runningTime_label">Session running time (debug)</string>
+    <string id="runnintTime_unit">s</string>
+
+    <string id="minVoltage_label">Session min voltage</string>
+    <string id="maxVoltage_label">Session max voltage</string>
+    <string id="minBattery_label">Session min battery %</string>
+    <string id="maxBattery_label">Session max battery %</string>
+    <string id="wheelName_label">VESC profile name</string>
+    <string id="empty"></string>
+    
+
+</strings>

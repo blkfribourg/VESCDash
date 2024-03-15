@@ -1,0 +1,603 @@
+<settings>
+<!-- Global settings-->
+        <setting
+            propertyKey="@Properties.updateDelay"
+            title="@Strings.updateDelay">
+            <settingConfig
+                type="numeric"
+                min="100"
+                max="1000"
+                errorMessage="@Strings.updateDelay_ErrorMessage" />
+        </setting>
+        <setting
+            propertyKey="@Properties.activityRecordingOnStartup"
+            title="@Strings.activityRecordingOnStartup">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        <setting
+            propertyKey="@Properties.activitySavingOnExit"
+            title="@Strings.activitySavingOnExit">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+    
+         <setting
+            propertyKey="@Properties.averageMovingSpeedStatistic"
+            title="@Strings.averageMovingSpeedStatistic">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        <setting
+            propertyKey="@Properties.topSpeedStatistic"
+            title="@Strings.topSpeedStatistic">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+         <setting
+            propertyKey="@Properties.watchBatteryConsumptionStatistic"
+            title="@Strings.watchBatteryConsumptionStatistic">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        <setting
+            propertyKey="@Properties.watchBatteryStatistic"
+            title="@Strings.watchBatteryStatistic">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+         <setting
+            propertyKey="@Properties.totalDistanceStatistic"
+            title="@Strings.totalDistanceStatistic">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        <setting
+            propertyKey="@Properties.tripDistanceStatistic"
+            title="@Strings.tripDistanceStatistic">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        <setting
+            propertyKey="@Properties.voltageStatistic"
+            title="@Strings.voltageStatistic">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        <setting
+            propertyKey="@Properties.profileName"
+            title="@Strings.profileName">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        <setting
+            propertyKey="@Properties.defaultProfile"
+            title="@Strings.defaultProfile">  
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.profile0</listEntry>
+                    <listEntry value="1">@Strings.profile1</listEntry>
+                    <listEntry value="2">@Strings.profile2</listEntry>
+                    <listEntry value="3">@Strings.profile3</listEntry>
+                </settingConfig>
+        </setting>
+        <setting
+            propertyKey="@Properties.useProfileSelector"
+            title="@Strings.useProfileSelector">  
+               <settingConfig
+                type="boolean"
+            />
+        </setting>
+         <setting
+            propertyKey="@Properties.debugMode"
+            title="@Strings.debugMode">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+         <setting
+            propertyKey="@Properties.useMiles"
+            title="@Strings.useMiles">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+         <setting
+            propertyKey="@Properties.useFahrenheit"
+            title="@Strings.useFahrenheit">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
+        
+
+       <!--Profile 1-->
+
+            <setting
+                propertyKey="@Properties.wheelName_p1"
+                title="@Strings.wheelName_p1">
+                <settingConfig type="alphaNumeric"/>
+            </setting>
+            
+            <setting
+                propertyKey="@Properties.recordActivityButtonMap_p1"
+                title="@Strings.recordActivityButtonMap_p1">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.none</listEntry>
+                    <listEntry value="4">@Strings.startStopButton</listEntry>
+                    <listEntry value="13">@Strings.middleButton</listEntry>
+                    <listEntry value="8">@Strings.downButton</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
+                    propertyKey="@Properties.cmdQueueDelay_p1"
+                    title="@Strings.cmdQueueDelay_p1">
+                    <settingConfig
+                        type="numeric"
+                        min="10"
+                        max="2000"
+                        errorMessage="@Strings.cmdQueueDelay_ErrorMessage" />
+                </setting>
+                <setting
+                    propertyKey="@Properties.VESCCanId_p1"
+                    title="@Strings.VESCCanId_p1">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="100"
+                     />
+                </setting>
+                <setting
+                    propertyKey="@Properties.voltageCorrectionFactor_p1"
+                    title="@Strings.voltageCorrectionFactor_p1">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="2"
+                        errorMessage="@Strings.voltageCorrectionFactor_ErrorMessage" />
+                </setting>
+                <setting
+                    propertyKey="@Properties.voltageSagIndicatorThresh_p1"
+                    title="@Strings.voltageSagIndicatorThresh_p1">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="1"
+                        errorMessage="@Strings.voltageSagIndicatorThresh_ErrorMessage" />
+                </setting>
+                <setting
+                propertyKey="@Properties.currentCorrection_p1"
+                title="@Strings.currentCorrection_p1">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.currentCorrection0</listEntry>
+                    <listEntry value="1">@Strings.currentCorrection1</listEntry>
+                    <listEntry value="2">@Strings.currentCorrection2</listEntry>
+                </settingConfig>
+            </setting>
+                <setting
+                    propertyKey="@Properties.speedCorrectionFactor_p1"
+                    title="@Strings.speedCorrectionFactor_p1">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="2"
+                        errorMessage="@Strings.speedCorrectionFactor_ErrorMessage" />
+           
+            </setting>
+            <setting
+                    propertyKey="@Properties.mainNumber_p1"
+                    title="@Strings.mainNumber_p1">
+                    <settingConfig type="list">
+                    <listEntry value="0">@Strings.speed_str</listEntry>
+                    <listEntry value="1">@Strings.PWM_str</listEntry>
+                    <listEntry value="2">@Strings.battPerc_str</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
+                    propertyKey="@Properties.topBar_p1"
+                    title="@Strings.topBar_p1">
+                    <settingConfig type="list">
+                    <listEntry value="1">@Strings.speed_str</listEntry>
+                    <listEntry value="0">@Strings.PWM_str</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
+                    propertyKey="@Properties.maxSpeed_p1"
+                    title="@Strings.maxSpeed_p1">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="200"
+                        errorMessage="@Strings.maxSpeed_ErrorMessage" />
+           
+            </setting>
+                <setting
+                    propertyKey="@Properties.maxTemperature_p1"
+                    title="@Strings.maxTemperature_p1">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="250"
+                        errorMessage="@Strings.maxTemperature_ErrorMessage" />
+            </setting>
+            <setting
+            propertyKey="@Properties.orangeColoringThreshold_p1"
+            title="@Strings.orangeColoringThreshold_p1">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.coloringThreshold_ErrorMessage" />
+            </setting>
+            <setting
+            propertyKey="@Properties.redColoringThreshold_p1"
+            title="@Strings.redColoringThreshold_p1">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.coloringThreshold_ErrorMessage" />
+            </setting>
+       
+      
+        <setting
+            propertyKey="@Properties.alarmThreshold_PWM_p1"
+            title="@Strings.alarmThreshold_PWM_p1">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.alarmThreshold_PWM_ErrorMessage" />
+        </setting>
+        <setting
+            propertyKey="@Properties.alarmThreshold_speed_p1"
+            title="@Strings.alarmThreshold_speed_p1">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="200"
+                errorMessage="@Strings.alarmThreshold_speed_ErrorMessage" />
+        </setting>
+        <setting
+            propertyKey="@Properties.alarmThreshold_temp_p1"
+            title="@Strings.alarmThreshold_temp_p1">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="250"
+                errorMessage="@Strings.alarmThreshold_temp_ErrorMessage" />
+        </setting>
+       
+        
+
+<!--Profile 2-->
+
+            <setting
+                propertyKey="@Properties.wheelName_p2"
+                title="@Strings.wheelName_p2">
+                <settingConfig type="alphaNumeric"/>
+            </setting>
+           
+            <setting
+                propertyKey="@Properties.recordActivityButtonMap_p2"
+                title="@Strings.recordActivityButtonMap_p2">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.none</listEntry>
+                    <listEntry value="4">@Strings.startStopButton</listEntry>
+                    <listEntry value="13">@Strings.middleButton</listEntry>
+                    <listEntry value="8">@Strings.downButton</listEntry>
+                </settingConfig>
+            </setting>
+            
+            <setting
+                    propertyKey="@Properties.cmdQueueDelay_p2"
+                    title="@Strings.cmdQueueDelay_p2">
+                    <settingConfig
+                        type="numeric"
+                        min="10"
+                        max="2000"
+                        errorMessage="@Strings.cmdQueueDelay_ErrorMessage" />
+                </setting>
+                <setting
+                    propertyKey="@Properties.VESCCanId_p2"
+                    title="@Strings.VESCCanId_p2">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="100"
+                     />
+                </setting>
+                <setting
+                    propertyKey="@Properties.voltageCorrectionFactor_p2"
+                    title="@Strings.voltageCorrectionFactor_p2">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="2"
+                        errorMessage="@Strings.voltageCorrectionFactor_ErrorMessage" />
+                </setting>
+                <setting
+                    propertyKey="@Properties.voltageSagIndicatorThresh_p2"
+                    title="@Strings.voltageSagIndicatorThresh_p2">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="1"
+                        errorMessage="@Strings.voltageSagIndicatorThresh_ErrorMessage" />
+                </setting>
+               
+
+                <setting
+                propertyKey="@Properties.currentCorrection_p2"
+                title="@Strings.currentCorrection_p2">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.currentCorrection0</listEntry>
+                    <listEntry value="1">@Strings.currentCorrection1</listEntry>
+                    <listEntry value="2">@Strings.currentCorrection2</listEntry>
+                </settingConfig>
+            </setting>
+                <setting
+                    propertyKey="@Properties.speedCorrectionFactor_p2"
+                    title="@Strings.speedCorrectionFactor_p2">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="2"
+                        errorMessage="@Strings.speedCorrectionFactor_ErrorMessage" />
+           
+            </setting>
+            <setting
+                    propertyKey="@Properties.mainNumber_p2"
+                    title="@Strings.mainNumber_p2">
+                    <settingConfig type="list">
+                    <listEntry value="0">@Strings.speed_str</listEntry>
+                    <listEntry value="1">@Strings.PWM_str</listEntry>
+                    <listEntry value="2">@Strings.battPerc_str</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
+                    propertyKey="@Properties.topBar_p2"
+                    title="@Strings.topBar_p2">
+                    <settingConfig type="list">
+                    <listEntry value="1">@Strings.speed_str</listEntry>
+                    <listEntry value="0">@Strings.PWM_str</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
+                    propertyKey="@Properties.maxSpeed_p2"
+                    title="@Strings.maxSpeed_p2">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="200"
+                        errorMessage="@Strings.maxSpeed_ErrorMessage" />
+           
+            </setting>
+                <setting
+                    propertyKey="@Properties.maxTemperature_p2"
+                    title="@Strings.maxTemperature_p2">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="250"
+                        errorMessage="@Strings.maxTemperature_ErrorMessage" />
+            </setting>
+            <setting
+            propertyKey="@Properties.orangeColoringThreshold_p2"
+            title="@Strings.orangeColoringThreshold_p2">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.coloringThreshold_ErrorMessage" />
+            </setting>
+            <setting
+            propertyKey="@Properties.redColoringThreshold_p2"
+            title="@Strings.redColoringThreshold_p2">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.coloringThreshold_ErrorMessage" />
+            </setting>
+  
+        <setting
+            propertyKey="@Properties.alarmThreshold_PWM_p2"
+            title="@Strings.alarmThreshold_PWM_p2">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.alarmThreshold_PWM_ErrorMessage" />
+        </setting>
+        <setting
+            propertyKey="@Properties.alarmThreshold_speed_p2"
+            title="@Strings.alarmThreshold_speed_p2">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="200"
+                errorMessage="@Strings.alarmThreshold_speed_ErrorMessage" />
+        </setting>
+        <setting
+            propertyKey="@Properties.alarmThreshold_temp_p2"
+            title="@Strings.alarmThreshold_temp_p2">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="250"
+                errorMessage="@Strings.alarmThreshold_temp_ErrorMessage" />
+        </setting>
+        
+
+
+<!--Profile 3-->
+
+            <setting
+                propertyKey="@Properties.wheelName_p3"
+                title="@Strings.wheelName_p3">
+                <settingConfig type="alphaNumeric"/>
+            </setting>
+            
+            <setting
+                propertyKey="@Properties.recordActivityButtonMap_p3"
+                title="@Strings.recordActivityButtonMap_p3">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.none</listEntry>
+                    <listEntry value="4">@Strings.startStopButton</listEntry>
+                    <listEntry value="13">@Strings.middleButton</listEntry>
+                    <listEntry value="8">@Strings.downButton</listEntry>
+                </settingConfig>
+            </setting>
+           
+            <setting
+                    propertyKey="@Properties.cmdQueueDelay_p3"
+                    title="@Strings.cmdQueueDelay_p3">
+                    <settingConfig
+                        type="numeric"
+                        min="10"
+                        max="2000"
+                        errorMessage="@Strings.cmdQueueDelay_ErrorMessage" />
+                </setting>
+                <setting
+                    propertyKey="@Properties.VESCCanId_p3"
+                    title="@Strings.VESCCanId_p3">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="100"
+                     />
+                </setting>
+                <setting
+                    propertyKey="@Properties.voltageCorrectionFactor_p3"
+                    title="@Strings.voltageCorrectionFactor_p3">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="2"
+                        errorMessage="@Strings.voltageCorrectionFactor_ErrorMessage" />
+                </setting>
+                <setting
+                    propertyKey="@Properties.voltageSagIndicatorThresh_p3"
+                    title="@Strings.voltageSagIndicatorThresh_p3">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="1"
+                        errorMessage="@Strings.voltageSagIndicatorThresh_ErrorMessage" />
+                </setting>
+                
+
+                <setting
+                propertyKey="@Properties.currentCorrection_p3"
+                title="@Strings.currentCorrection_p3">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.currentCorrection0</listEntry>
+                    <listEntry value="1">@Strings.currentCorrection1</listEntry>
+                    <listEntry value="2">@Strings.currentCorrection2</listEntry>
+                </settingConfig>
+            </setting>
+                <setting
+                    propertyKey="@Properties.speedCorrectionFactor_p3"
+                    title="@Strings.speedCorrectionFactor_p3">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="2"
+                        errorMessage="@Strings.speedCorrectionFactor_ErrorMessage" />
+           
+            </setting>
+            <setting
+                    propertyKey="@Properties.mainNumber_p3"
+                    title="@Strings.mainNumber_p3">
+                    <settingConfig type="list">
+                    <listEntry value="0">@Strings.speed_str</listEntry>
+                    <listEntry value="1">@Strings.PWM_str</listEntry>
+                    <listEntry value="2">@Strings.battPerc_str</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
+                    propertyKey="@Properties.topBar_p3"
+                    title="@Strings.topBar_p3">
+                    <settingConfig type="list">
+                    <listEntry value="1">@Strings.speed_str</listEntry>
+                    <listEntry value="0">@Strings.PWM_str</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
+                    propertyKey="@Properties.maxSpeed_p3"
+                    title="@Strings.maxSpeed_p3">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="200"
+                        errorMessage="@Strings.maxSpeed_ErrorMessage" />
+           
+            </setting>
+                <setting
+                    propertyKey="@Properties.maxTemperature_p3"
+                    title="@Strings.maxTemperature_p3">
+                    <settingConfig
+                        type="numeric"
+                        min="0"
+                        max="250"
+                        errorMessage="@Strings.maxTemperature_ErrorMessage" />
+            </setting>
+            <setting
+            propertyKey="@Properties.orangeColoringThreshold_p3"
+            title="@Strings.orangeColoringThreshold_p3">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.coloringThreshold_ErrorMessage" />
+            </setting>
+            <setting
+            propertyKey="@Properties.redColoringThreshold_p3"
+            title="@Strings.redColoringThreshold_p3">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.coloringThreshold_ErrorMessage" />
+            </setting>
+  
+        <setting
+            propertyKey="@Properties.alarmThreshold_PWM_p3"
+            title="@Strings.alarmThreshold_PWM_p3">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="100"
+                errorMessage="@Strings.alarmThreshold_PWM_ErrorMessage" />
+        </setting>
+        <setting
+            propertyKey="@Properties.alarmThreshold_speed_p3"
+            title="@Strings.alarmThreshold_speed_p3">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="200"
+                errorMessage="@Strings.alarmThreshold_speed_ErrorMessage" />
+        </setting>
+        <setting
+            propertyKey="@Properties.alarmThreshold_temp_p3"
+            title="@Strings.alarmThreshold_temp_p3">
+            <settingConfig
+                type="numeric"
+                min="0"
+                max="250"
+                errorMessage="@Strings.alarmThreshold_temp_ErrorMessage" />
+        </setting>
+        
+   
+</settings>
