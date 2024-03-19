@@ -24,6 +24,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
   var message7 = "";
   var message8 = "";
   var message9 = "";
+  var currentState="";
   var bleCharReadNb = 0;
   var timeWhenConnected;
   /*
@@ -41,6 +42,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
     //char = profileManager.EUC_CHAR;
     queue = q;
     decoder = _decoder;
+    currentState="init";
     /*
     char_w = profileManager.EUC_CHAR_W;
     // VESC COMM VAL SETUP:
@@ -67,7 +69,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
   function onConnectedStateChanged(device, state) {
     //		view.deviceStatus=state;
     if (state == Ble.CONNECTION_STATE_CONNECTED) {
-      message3 = "BLE connected";
+      currentState = "BLE connected";
       var cccd;
       service = device.getService(profileManager.EUC_SERVICE);
       char =
@@ -177,6 +179,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
   }
   //! @param scanResults An iterator of new scan results
   function onScanResults(scanResults as Ble.Iterator) {
+    currentState="scanning";
     if (isFirst) {
       var wheelFound = false;
       for (
@@ -225,7 +228,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
     queue.run();
   }
   function onDescriptorWrite(desc, status) {
-    message7 = "descWrite";
+    currentState = "descWrite";
     // If KS fire queue
 
     if (char != null) {
@@ -236,7 +239,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
   function onCharacteristicWrite(desc, status) {}
 
   function onCharacteristicChanged(char, value) {
-    // message7 = "CharacteristicChanged";
+    currentState= "CharChanged";
 
     decoder.frameBuilder(self, value);
   }

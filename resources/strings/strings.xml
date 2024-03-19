@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">VESCDash</string>
+    <string id="AppName">VESCDash (debug)</string>
     <string id="firstConnStr">Profile $1$ 1st connection\nPlease turn on your wheel\n and wait for connection\n\nensure only one wheel is ON!\n\nIf you enjoy this app :\n ko-fi.com/wheeldash</string>
     <string id="connectedStr">Profile $1$ connected !\n\nSaving wheel unique identifier</string>
     <!-- Strings, that are used in Connect IQ Settings menu, like 
@@ -17,6 +17,12 @@
     <string id="recordActivityButtonMap_p1">Button mapping to activity recording view (Profile 1)</string>
     <string id="recordActivityButtonMap_p2">Button mapping to activity recording view (Profile 2)</string>
     <string id="recordActivityButtonMap_p3">Button mapping to activity recording view (Profile 3)</string>
+
+     <string id="DFViewButtonButtonMap_p1">Button mapping to DF like view (Profile 1)</string>
+    <string id="DFViewButtonButtonMap_p2">Button mapping to DF like view (Profile 2)</string>
+    <string id="DFViewButtonButtonMap_p3">Button mapping to DF like view (Profile 3)</string>
+    
+     
 <!--
     <string id="cycleLightButtonMap_p1">Button mapping to cycle light mode (Profile 1)</string>
     <string id="cycleLightButtonMap_p2">Button mapping to cycle light mode (Profile 2)</string>

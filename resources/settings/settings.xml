@@ -139,6 +139,16 @@
                 </settingConfig>
             </setting>
             <setting
+                propertyKey="@Properties.DFViewButtonButtonMap_p1"
+                title="@Strings.DFViewButtonButtonMap_p1">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.none</listEntry>
+                    <listEntry value="4">@Strings.startStopButton</listEntry>
+                    <listEntry value="13">@Strings.middleButton</listEntry>
+                    <listEntry value="8">@Strings.downButton</listEntry>
+                </settingConfig>
+            </setting>
+            <setting
                     propertyKey="@Properties.cmdQueueDelay_p1"
                     title="@Strings.cmdQueueDelay_p1">
                     <settingConfig
@@ -297,7 +307,16 @@
                     <listEntry value="8">@Strings.downButton</listEntry>
                 </settingConfig>
             </setting>
-            
+             <setting
+                propertyKey="@Properties.DFViewButtonButtonMap_p2"
+                title="@Strings.DFViewButtonButtonMap_p2">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.none</listEntry>
+                    <listEntry value="4">@Strings.startStopButton</listEntry>
+                    <listEntry value="13">@Strings.middleButton</listEntry>
+                    <listEntry value="8">@Strings.downButton</listEntry>
+                </settingConfig>
+            </setting>
             <setting
                     propertyKey="@Properties.cmdQueueDelay_p2"
                     title="@Strings.cmdQueueDelay_p2">
@@ -458,7 +477,16 @@
                     <listEntry value="8">@Strings.downButton</listEntry>
                 </settingConfig>
             </setting>
-           
+            <setting
+                propertyKey="@Properties.DFViewButtonButtonMap_p3"
+                title="@Strings.DFViewButtonButtonMap_p3">
+                <settingConfig type="list">
+                    <listEntry value="0">@Strings.none</listEntry>
+                    <listEntry value="4">@Strings.startStopButton</listEntry>
+                    <listEntry value="13">@Strings.middleButton</listEntry>
+                    <listEntry value="8">@Strings.downButton</listEntry>
+                </settingConfig>
+            </setting>
             <setting
                     propertyKey="@Properties.cmdQueueDelay_p3"
                     title="@Strings.cmdQueueDelay_p3">

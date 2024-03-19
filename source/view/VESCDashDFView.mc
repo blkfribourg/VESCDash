@@ -3,14 +3,12 @@ import Toybox.WatchUi;
 using Toybox.Timer;
 
 using Toybox.System;
-class GarminEUCDebugView extends WatchUi.View {
+class VESCDashDFView extends WatchUi.View {
   var BleDelegate;
   function initialize() {
     View.initialize();
   }
-  function setBleDelegate(_BleDelegate) {
-    BleDelegate = _BleDelegate;
-  }
+  
 
   // Called when this View is brought to the foreground. Restore
   // the state of this View and prepare it to be shown. This includes
@@ -81,13 +79,6 @@ class GarminEUCDebugView extends WatchUi.View {
         7 * space + yGap,
         Graphics.FONT_TINY,
         "runId: " + BleDelegate.queue.run_id,
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-      );
-       dc.drawText(
-      2*alignAxe+xGap/2,
-       2*space + yGap,
-        Graphics.FONT_TINY,
-        "bleSt: " + BleDelegate.currentState,
         Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
       );
     }

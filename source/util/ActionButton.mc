@@ -8,6 +8,7 @@ class ActionButton {
   var recordActivityButton;
   var cycleLightButton;
   var beepButton;
+  var DFViewButton;
   //var lockButton;
   var queue;
   var queueRequired;
@@ -21,6 +22,10 @@ class ActionButton {
 
       if (recordActivityButton == keyNumber) {
         _mainDelegate.goToActivityView();
+      }
+
+      if (DFViewButton == keyNumber){
+        _mainDelegate.goToDFlikeView();
       }
       //if (bleDelegate != null && eucData.paired == true) {
       if (cycleLightButton == keyNumber) {

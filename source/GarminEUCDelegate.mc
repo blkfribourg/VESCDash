@@ -7,6 +7,7 @@ class GarminEUCDelegate extends WatchUi.BehaviorDelegate {
   var menu = null;
   var mainView = null;
   var activityView = null;
+  var DFlikeView = null;
   var menu2Delegate = null;
   var actionButtonTrigger = null;
 
@@ -74,6 +75,15 @@ class GarminEUCDelegate extends WatchUi.BehaviorDelegate {
       new ActivityRecordDelegate(activityView),
       WatchUi.SLIDE_UP
     ); // Switch to activity view
+  }
+  function goToDFlikeView(){
+     DFlikeView = new VESCDashDFView();
+     
+     WatchUi.pushView(
+      DFlikeView,
+      self,
+      WatchUi.SLIDE_UP
+    );
   }
   function getMenu2Delegate() {
     return menu2Delegate;

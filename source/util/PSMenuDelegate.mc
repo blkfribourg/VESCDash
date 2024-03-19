@@ -176,6 +176,9 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
       actionButtonTrigger.recordActivityButton = AppStorage.getSetting(
         "recordActivityButtonMap_p1"
       );
+      actionButtonTrigger.DFViewButton = AppStorage.getSetting(
+        "DFViewButtonButtonMap_p1"
+      );
       /*
       actionButtonTrigger.cycleLightButton = AppStorage.getSetting(
         "cycleLightButtonMap_p1"
@@ -225,7 +228,11 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
 
       actionButtonTrigger.recordActivityButton = AppStorage.getSetting(
         "recordActivityButtonMap_p2"
-      ); /*
+      );
+      actionButtonTrigger.DFViewButton = AppStorage.getSetting(
+        "DFViewButtonButtonMap_p2"
+      );
+       /*
       actionButtonTrigger.cycleLightButton = AppStorage.getSetting(
         "cycleLightButtonMap_p2"
       );
@@ -274,6 +281,9 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
 
       actionButtonTrigger.recordActivityButton = AppStorage.getSetting(
         "recordActivityButtonMap_p3"
+      );
+      actionButtonTrigger.DFViewButton = AppStorage.getSetting(
+        "DFViewButtonButtonMap_p3"
       );
       /*
       actionButtonTrigger.cycleLightButton = AppStorage.getSetting(
