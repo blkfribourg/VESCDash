@@ -1,6 +1,6 @@
 using Toybox.System;
 
-module eucData {
+module vescData {
   var wheelName;
   var paired = false;
   var limitedMemory = false;
@@ -28,6 +28,12 @@ module eucData {
   var orangeColoringThreshold;
   var redColoringThreshold;
 
+  var logoColor = 0x1f1f1f;
+  var txtColor = 0xffffff;
+  var txtColor_unpr = 0xff8000;
+  var linesColor = 0xffffff;
+  var drawLines = true;
+
   var speedCorrectionFactor = 1; // correct distance aswell ...
   var useMiles = false;
   var useFahrenheit = false;
@@ -42,11 +48,13 @@ module eucData {
   var Phcurrent = 0.0;
   var current = 0.0;
   var temperature = 0.0;
+  var temperature_motor = 0.0;
   var DisplayedTemperature = 0.0;
   var maxTemperature = 65;
   var totalDistance = 0.0;
   var correctedTotalDistance = 0.0;
   var PWM = 0.0;
+  var rpm;
   var pedalMode = "0";
   var speedAlertMode = "0";
   var rollAngleMode = "0";
@@ -59,6 +67,19 @@ module eucData {
   var currentCorrection;
   var gothPWN = false;
   var battery = 0.0;
+  var amp_hours;
+  var amp_hours_charged;
+  var watt_hours;
+  var watt_hours_charged;
+  var tachometer;
+  var tachometer_abs;
+  var position;
+  var fault_code;
+  var fault_str;
+  var vesc_id;
+  var num_vescs;
+  var battery_wh;
+  var uptime_ms;
   // Veteran specific
   var version = 0;
 
@@ -89,6 +110,8 @@ module eucData {
 
   //VESC :
   var VESCCanId = 0;
+  var displayData = false;
+
   function getBatteryPercentage() {
     // using better battery formula from wheellog
 
@@ -96,7 +119,7 @@ module eucData {
   }
 
   function getPWM() {
-    if (eucData.voltage != 0) {
+    if (vescData.voltage != 0) {
       return hPWM;
     } else {
       return 0.0;

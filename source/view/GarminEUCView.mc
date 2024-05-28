@@ -48,19 +48,19 @@ class GarminEUCView extends WatchUi.View {
         ":" +
         System.getClockTime().min.format("%02d")
     );
-    var batteryPercentage = eucData.getBatteryPercentage();
+    var batteryPercentage = vescData.getBatteryPercentage();
 
     cDrawables[:BatteryNumber].setText(
       valueRound(batteryPercentage, "%.1f") + "%"
     );
     var tempUnit;
-    if (eucData.useFahrenheit == true) {
+    if (vescData.useFahrenheit == true) {
       tempUnit = "°F";
     } else {
       tempUnit = "°C";
     }
     cDrawables[:TemperatureNumber].setText(
-      valueRound(eucData.DisplayedTemperature, "%.1f").toString() + tempUnit
+      valueRound(vescData.DisplayedTemperature, "%.1f").toString() + tempUnit
     );
     cDrawables[:BottomSubtitle].setText(diplayStats());
     /* To implement later
@@ -75,27 +75,27 @@ class GarminEUCView extends WatchUi.View {
 
     var speedNumberStr = "";
 
-    if (eucData.mainNumber == 0) {
+    if (vescData.mainNumber == 0) {
       var speedNumberVal = "";
-      speedNumberVal = eucData.correctedSpeed;
-      if (speedNumberVal > 100) {
-        speedNumberStr = valueRound(eucData.correctedSpeed, "%d").toString();
+      speedNumberVal = vescData.correctedSpeed;
+      if (speedNumberVal >= 100) {
+        speedNumberStr = valueRound(vescData.correctedSpeed, "%d").toString();
       } else {
-        speedNumberStr = valueRound(eucData.correctedSpeed, "%.1f").toString();
+        speedNumberStr = valueRound(vescData.correctedSpeed, "%.1f").toString();
       }
     }
-    if (eucData.mainNumber == 1) {
+    if (vescData.mainNumber == 1) {
       var speedNumberVal;
-      speedNumberVal = eucData.PWM;
-      if (speedNumberVal > 100) {
-        speedNumberStr = valueRound(eucData.PWM, "%d").toString();
+      speedNumberVal = vescData.PWM;
+      if (speedNumberVal >= 100) {
+        speedNumberStr = valueRound(vescData.PWM, "%d").toString();
       } else {
-        speedNumberStr = valueRound(eucData.PWM, "%.1f").toString();
+        speedNumberStr = valueRound(vescData.PWM, "%.1f").toString();
       }
     }
-    if (eucData.mainNumber == 2) {
+    if (vescData.mainNumber == 2) {
       var speedNumberVal;
-      speedNumberVal = eucData.getBatteryPercentage();
+      speedNumberVal = vescData.getBatteryPercentage();
       if (speedNumberVal > 100) {
         speedNumberStr = valueRound(speedNumberVal, "%d").toString();
       } else {
@@ -104,19 +104,19 @@ class GarminEUCView extends WatchUi.View {
     }
     cDrawables[:SpeedNumber].setText(speedNumberStr);
     //cDrawables[:SpeedArc].setValues(WheelData.currentSpeed.toFloat(), WheelData.speedLimit);
-    if (eucData.topBar == 0) {
-      cDrawables[:SpeedArc].setValues(eucData.PWM.toFloat(), 100);
+    if (vescData.topBar == 0) {
+      cDrawables[:SpeedArc].setValues(vescData.PWM.toFloat(), 100);
     } else {
       cDrawables[:SpeedArc].setValues(
-        eucData.correctedSpeed.toFloat(),
-        eucData.maxDisplayedSpeed
+        vescData.correctedSpeed.toFloat(),
+        vescData.maxDisplayedSpeed
       );
     }
 
     cDrawables[:BatteryArc].setValues(batteryPercentage, 100);
     cDrawables[:TemperatureArc].setValues(
-      eucData.DisplayedTemperature,
-      eucData.maxTemperature
+      vescData.DisplayedTemperature,
+      vescData.maxTemperature
     );
     cDrawables[:TimeDate].setColor(Graphics.COLOR_WHITE);
     cDrawables[:SpeedNumber].setColor(Graphics.COLOR_WHITE);
@@ -131,7 +131,7 @@ class GarminEUCView extends WatchUi.View {
   function diplayStats() {
     //System.println(EUCAlarms.alarmType);
     var rideStatsText = "";
-    if (!eucData.paired) {
+    if (!vescData.paired) {
       rideStatsText = "VESC Not\nConnected";
     } else {
       if (!EUCAlarms.alarmType.equals("none")) {

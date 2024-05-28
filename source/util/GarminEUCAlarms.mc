@@ -30,23 +30,23 @@ module EUCAlarms {
   }
   function speedAlarmCheck() {
     //PWN alarm
-    if (Attention has :vibrate && eucData.alarmThreshold_PWM != 0) {
+    if (Attention has :vibrate && vescData.alarmThreshold_PWM != 0) {
       if (
-        eucData.PWM > eucData.alarmThreshold_PWM &&
-        eucData.PWM < eucData.alarmThreshold_PWM + 5 &&
+        vescData.PWM > vescData.alarmThreshold_PWM &&
+        vescData.PWM < vescData.alarmThreshold_PWM + 5 &&
         alarmDelay <= 0
       ) {
         EUCAlarms.alarmHandler(100, 300);
-        alarmDelay = 1000 / eucData.updateDelay;
+        alarmDelay = 1000 / vescData.updateDelay;
         PWMAlarm = true;
       }
-      if (eucData.PWM > eucData.alarmThreshold_PWM + 5 && alarmDelay <= 0) {
+      if (vescData.PWM > vescData.alarmThreshold_PWM + 5 && alarmDelay <= 0) {
         EUCAlarms.alarmHandler(100, 100);
-        alarmDelay = 200 / eucData.updateDelay;
+        alarmDelay = 200 / vescData.updateDelay;
 
         PWMAlarm = true;
       }
-      if (eucData.PWM < eucData.alarmThreshold_PWM) {
+      if (vescData.PWM < vescData.alarmThreshold_PWM) {
         alarmDelay = 0;
 
         PWMAlarm = false;
@@ -57,18 +57,18 @@ module EUCAlarms {
     }
 
     //Temperature alarm
-    if (Attention has :vibrate && eucData.alarmThreshold_temp != 0) {
+    if (Attention has :vibrate && vescData.alarmThreshold_temp != 0) {
       if (
-        eucData.DisplayedTemperature > eucData.alarmThreshold_temp &&
+        vescData.DisplayedTemperature > vescData.alarmThreshold_temp &&
         alarmDelay <= 0 &&
         PWMAlarm == false
       ) {
         // PWM alarm have priority over temperature alarm
         EUCAlarms.alarmHandler(100, 300);
-        alarmDelay = 1000 / eucData.updateDelay;
+        alarmDelay = 1000 / vescData.updateDelay;
         tempAlarm = true;
       }
-      if (eucData.DisplayedTemperature < eucData.alarmThreshold_temp) {
+      if (vescData.DisplayedTemperature < vescData.alarmThreshold_temp) {
         alarmDelay = 0;
         tempAlarm = false;
       } else {
@@ -78,19 +78,19 @@ module EUCAlarms {
     }
 
     //Speed alarm
-    if (Attention has :vibrate && eucData.alarmThreshold_speed != 0) {
+    if (Attention has :vibrate && vescData.alarmThreshold_speed != 0) {
       if (
-        eucData.correctedSpeed > eucData.alarmThreshold_speed &&
+        vescData.correctedSpeed > vescData.alarmThreshold_speed &&
         alarmDelay <= 0 &&
         PWMAlarm == false &&
         tempAlarm == false
       ) {
         // PWM alarm and temperature alarm have priority over speed alarm
         EUCAlarms.alarmHandler(100, 300);
-        alarmDelay = 1000 / eucData.updateDelay;
+        alarmDelay = 1000 / vescData.updateDelay;
         speedAlarm = true;
       }
-      if (eucData.correctedSpeed < eucData.alarmThreshold_speed) {
+      if (vescData.correctedSpeed < vescData.alarmThreshold_speed) {
         alarmDelay = 0;
         speedAlarm = false;
       } else {

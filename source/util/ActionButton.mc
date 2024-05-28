@@ -16,7 +16,7 @@ class ActionButton {
     eucDict = getEUCSettingsDict();
   }
   function triggerAction(bleDelegate, keyNumber, _mainDelegate, _queue) {
-    if (eucData.paired == true) {
+    if (vescData.paired == true) {
       queueRequired = false;
       queue = _queue;
 
@@ -24,10 +24,10 @@ class ActionButton {
         _mainDelegate.goToActivityView();
       }
 
-      if (DFViewButton == keyNumber){
+      if (DFViewButton == keyNumber) {
         _mainDelegate.goToDFlikeView();
       }
-      //if (bleDelegate != null && eucData.paired == true) {
+      //if (bleDelegate != null && vescData.paired == true) {
       if (cycleLightButton == keyNumber) {
         queueRequired = true;
         // Action = cycle light modes
@@ -40,7 +40,7 @@ class ActionButton {
       if (queueRequired == true) {
         queue.delayTimer.start(
           method(:timerCallback),
-          eucData.BLECmdDelay,
+          vescData.BLECmdDelay,
           true
         );
       }

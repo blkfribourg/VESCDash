@@ -6,7 +6,7 @@ class BackgroundRenderer extends WatchUi.Drawable {
   function initialize(params) {
     Drawable.initialize(params);
 
-    if (!eucData.limitedMemory) {
+    if (!vescData.limitedMemory) {
       bg = Application.loadResource(Rez.Drawables.BackgroundImg);
     }
   }
@@ -23,7 +23,7 @@ class BackgroundRenderer extends WatchUi.Drawable {
     var screenDiam = dc.getWidth();
     dc.setColor(0x000000, 0x000000);
 
-    if (!eucData.limitedMemory) {
+    if (!vescData.limitedMemory) {
       dc.drawBitmap(0, 0, bg);
     } else {
       var startingAngle = 120;

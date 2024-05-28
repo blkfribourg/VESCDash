@@ -1,10 +1,10 @@
 class gotwayConfig {
   function getWheelSettingsStatus() {
     return [
-      eucData.ledMode.toString(),
-      eucData.speedAlertMode.toString(),
-      eucData.pedalMode.toString(),
-      //eucData.useMiles.toString(),
+      vescData.ledMode.toString(),
+      vescData.speedAlertMode.toString(),
+      vescData.pedalMode.toString(),
+      //vescData.useMiles.toString(),
     ];
   }
   function getConfigWithStatusDict() {
@@ -121,7 +121,7 @@ class gotwayConfig {
 
 class veteranConfig {
   function getWheelSettingsStatus() {
-    return [eucData.pedalMode.toString()];
+    return [vescData.pedalMode.toString()];
   }
   function getConfigWithStatusDict() {
     return [dictPedalStatus];
@@ -213,17 +213,17 @@ class inmotionConfig {
     return [];
   }
   function getConfig() {
-    if (eucData.model.equals("V11")) {
+    if (vescData.model.equals("V11")) {
       return [dictLightModeV11, dictDRL, dictRideMode, dictPerformanceMode];
     }
-    if (eucData.model.equals("V12")) {
+    if (vescData.model.equals("V12")) {
       return [dictLightModeV12, dictDRL, dictRideMode, dictPerformanceMode];
     } else {
       return [];
     }
   }
   function getConfigLabels() {
-    if (eucData.model.equals("V11") || eucData.model.equals("V12")) {
+    if (vescData.model.equals("V11") || vescData.model.equals("V12")) {
       return ["Lights", "DRL", "Ride Mode", "Performance Mode"];
     } else {
       return [];

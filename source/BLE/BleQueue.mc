@@ -89,7 +89,7 @@ class BleQueue {
     }
   }
   function autoRestart() {
-    delayTimer.start(method(:run), eucData.BLECmdDelay, false);
+    delayTimer.start(method(:run), vescData.BLECmdDelay, false);
   }
   function flush() {
     if (queue.size() != 0) {

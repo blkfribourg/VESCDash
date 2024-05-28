@@ -12,7 +12,7 @@ class RecordIndicatorRenderer extends WatchUi.Drawable {
     mMainColor = params.get(:mainColor);
   }
   function draw(dc) {
-    if (eucData.activityRecording == true) {
+    if (vescData.activityRecording == true) {
       //System.println(pause);
       var foregroundColor;
       if (pause < 0) {
@@ -24,7 +24,7 @@ class RecordIndicatorRenderer extends WatchUi.Drawable {
       dc.setColor(foregroundColor, 0x000000);
       dc.fillCircle(screenWidth / 2, screenWidth * 0.715, screenWidth / 70);
       dc.drawCircle(screenWidth / 2, screenWidth * 0.715, screenWidth / 40);
-      pause = pause - eucData.updateDelay;
+      pause = pause - vescData.updateDelay;
       if (pause < -1000) {
         pause = 1000;
       }
@@ -108,11 +108,11 @@ class ArcRenderer extends WatchUi.Drawable {
         if (currentValue != 0.0) {
           if (
             //should move appstorage values elsewhere
-            currentValue >= eucData.orangeColoringThreshold &&
-            currentValue < eucData.redColoringThreshold
+            currentValue >= vescData.orangeColoringThreshold &&
+            currentValue < vescData.redColoringThreshold
           ) {
             foregroundColor = mSecondColor;
-          } else if (currentValue >= eucData.redColoringThreshold) {
+          } else if (currentValue >= vescData.redColoringThreshold) {
             foregroundColor = mThirdColor;
           } else {
             foregroundColor = mMainColor;
@@ -120,7 +120,7 @@ class ArcRenderer extends WatchUi.Drawable {
         } else {
           foregroundColor = mMainColor;
         }
-        if (eucData.paired == false) {
+        if (vescData.paired == false) {
           foregroundColor = 0x545454;
         }
         dc.setColor(foregroundColor, 0x000000);
@@ -155,14 +155,14 @@ class ArcRenderer extends WatchUi.Drawable {
       }
       case :batteryArc: {
         // if no sag value :
-        var batteryPercentage = eucData.getBatteryPercentage();
+        var batteryPercentage = vescData.getBatteryPercentage();
         // BatterySag, move elsewhere ?
-        if (eucData.lowestBatteryPercentage > batteryPercentage.toNumber()) {
-          eucData.lowestBatteryPercentage = batteryPercentage.toNumber();
+        if (vescData.lowestBatteryPercentage > batteryPercentage.toNumber()) {
+          vescData.lowestBatteryPercentage = batteryPercentage.toNumber();
         }
 
         if (currentValue >= maxValue) {
-          if (eucData.paired == false) {
+          if (vescData.paired == false) {
             foregroundColor = 0x545454;
           } else {
             foregroundColor = mMainColor;
@@ -180,7 +180,7 @@ class ArcRenderer extends WatchUi.Drawable {
         } else {
           //System.println(computedPercentageLoadDrop);
 
-          if (eucData.paired == false) {
+          if (vescData.paired == false) {
             foregroundColor = 0x545454;
           } else {
             foregroundColor = mMainColor;
@@ -204,10 +204,10 @@ class ArcRenderer extends WatchUi.Drawable {
 
           if (
             currentValue != 0 &&
-            1 - eucData.lowestBatteryPercentage / currentValue >
-              eucData.sagThreshold
+            1 - vescData.lowestBatteryPercentage / currentValue >
+              vescData.sagThreshold
           ) {
-            if (eucData.paired == false) {
+            if (vescData.paired == false) {
               foregroundColor = 0x545454;
             } else {
               foregroundColor = mSecondColor;
@@ -217,7 +217,7 @@ class ArcRenderer extends WatchUi.Drawable {
             // Render yellow arc
 
             var percentage =
-              eucData.lowestBatteryPercentage.toFloat() / maxValue.toFloat();
+              vescData.lowestBatteryPercentage.toFloat() / maxValue.toFloat();
             var result = degreeRange - degreeRange * percentage + mEndDegree;
             if (result != mStartDegree) {
               //draw a line instead of an arc fill :
@@ -241,12 +241,12 @@ class ArcRenderer extends WatchUi.Drawable {
           //System.println(WheelData.temperature.toNumber());
           //System.println(currentValue);
           if (
-            currentValue >= 0.75 * eucData.maxTemperature &&
-            currentValue < 0.8 * eucData.maxTemperature
+            currentValue >= 0.75 * vescData.maxTemperature &&
+            currentValue < 0.8 * vescData.maxTemperature
           ) {
             foregroundColor = mSecondColor;
             //System.println("secondColor");
-          } else if (currentValue > 0.8 * eucData.maxTemperature) {
+          } else if (currentValue > 0.8 * vescData.maxTemperature) {
             foregroundColor = mThirdColor;
             //System.println("thirdColor");
           } else {
@@ -257,7 +257,7 @@ class ArcRenderer extends WatchUi.Drawable {
           foregroundColor = mMainColor;
           //System.println("mainColor");
         }
-        if (eucData.paired == false) {
+        if (vescData.paired == false) {
           foregroundColor = 0x545454;
         }
         dc.setColor(foregroundColor, 0x000000);

@@ -22,40 +22,40 @@ module rideStats {
   var showProfileName;
 
   function avgSpeed() {
-    if (eucData.useMiles == false) {
+    if (vescData.useMiles == false) {
       minimalMovingSpeed = 2; // 2 mph
     } else {
       minimalMovingSpeed = 3; // 3 km/h
     }
-    if (eucData.correctedSpeed > minimalMovingSpeed) {
+    if (vescData.correctedSpeed > minimalMovingSpeed) {
       if (startupDistance == null) {
-        startupDistance = eucData.correctedTripDistance;
+        startupDistance = vescData.correctedTripDistance;
       }
-      movingmsec = movingmsec + eucData.updateDelay;
-      eucData.avgMovingSpeed =
-        (eucData.correctedTripDistance - startupDistance) /
+      movingmsec = movingmsec + vescData.updateDelay;
+      vescData.avgMovingSpeed =
+        (vescData.correctedTripDistance - startupDistance) /
         (movingmsec / 3600000.0);
     }
   }
 
   function topSpeed() {
-    if (eucData.correctedSpeed > eucData.topSpeed) {
-      eucData.topSpeed = eucData.correctedSpeed;
+    if (vescData.correctedSpeed > vescData.topSpeed) {
+      vescData.topSpeed = vescData.correctedSpeed;
     }
   }
 
   function watchBatteryUsage() {
-    runningmsec = runningmsec + eucData.updateDelay;
+    runningmsec = runningmsec + vescData.updateDelay;
     if (startupWatchBattery == null) {
       startupWatchBattery = System.getSystemStats().battery;
     }
     consummedWatchBattery =
       startupWatchBattery - System.getSystemStats().battery;
-    eucData.watchBatteryUsage =
+    vescData.watchBatteryUsage =
       consummedWatchBattery / (runningmsec / 3600000.0);
   }
 
   function statsTimerReset() {
-    statsTimer = 2000.0 / eucData.updateDelay;
+    statsTimer = 2000.0 / vescData.updateDelay;
   }
 }

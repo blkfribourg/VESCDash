@@ -5,7 +5,7 @@
         Use "Monkey C: Edit Application" from the Visual Studio Code command palette
         to update the application attributes.
     -->
-    <iq:application id="a4f01fda-b3e8-4f81-abf6-5d3fb8cacb04" type="watch-app" name="@Strings.AppName" entry="GarminEUCApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
+    <iq:application id="c7794f0b-36c5-42a1-9c59-fe09ef0001c8" type="watch-app" name="@Strings.AppName" entry="GarminEUCApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
         <!-- 
              app id  : c7794f0b-36c5-42a1-9c59-fe09ef0001c8
             -->
@@ -54,6 +54,7 @@
             <iq:product id="fr255"/>
             <iq:product id="fr255m"/>
             <iq:product id="fr265"/>
+            <iq:product id="fr265s"/>
             <iq:product id="fr745"/>
             <iq:product id="fr945"/>
             <iq:product id="fr945lte"/>
@@ -74,6 +75,7 @@
             <iq:product id="venu"/>
             <iq:product id="venu2"/>
             <iq:product id="venu2plus"/>
+            <iq:product id="venu2s"/>
             <iq:product id="venu3"/>
             <iq:product id="venu3s"/>
             <iq:product id="venud"/>

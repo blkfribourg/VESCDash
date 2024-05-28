@@ -17,7 +17,7 @@ class GarminEUCApp extends Application.AppBase {
   private var activityRecordView;
 
   function initialize() {
-    eucData.limitedMemory = System.getSystemStats().totalMemory < 128000;
+    vescData.limitedMemory = System.getSystemStats().totalMemory < 128000;
     AppBase.initialize();
     usePS = AppStorage.getSetting("useProfileSelector");
 
@@ -31,19 +31,19 @@ class GarminEUCApp extends Application.AppBase {
     // end of sandbox
     setGlobalSettings();
     rideStatsInit();
-    alarmsTimer.start(method(:onUpdateTimer), eucData.updateDelay, true);
+    alarmsTimer.start(method(:onUpdateTimer), vescData.updateDelay, true);
   }
 
   // onStop() is called when your application is exiting
   function onStop(state as Dictionary?) as Void {
-    if (eucData.activityAutorecording == true) {
+    if (vescData.activityAutorecording == true) {
       if (delegate != null && activityRecordView != null) {
         if (activityRecordView.isSessionRecording()) {
           activityRecordView.stopRecording();
         }
       }
     }
-    if (eucData.activityAutosave == true && delegate != null) {
+    if (vescData.activityAutosave == true && delegate != null) {
       activityRecordView = delegate.getActivityView();
       if (activityRecordView.isSessionRecording()) {
         activityRecordView.stopRecording();
@@ -53,7 +53,7 @@ class GarminEUCApp extends Application.AppBase {
   }
 
   // Return the initial view of your application here
-  function getInitialView() as Array<Views or InputDelegates>? {
+  function getInitialView() {
     view = profileSelector.createPSMenu();
     delegate = profileSelector.createPSDelegate();
     if (!usePS) {
@@ -64,24 +64,24 @@ class GarminEUCApp extends Application.AppBase {
       delegate = delegate.getDelegate();
     }
 
-    return [view, delegate] as Array<Views or InputDelegates>;
+    return [view, delegate];
   }
   // Timer callback for various alarms & update UI
   function onUpdateTimer() {
     // dummyGen();
     //Only starts if no profile selected
-    if (eucData.wheelName == null && delegate != null && usePS) {
-      timeOut = timeOut - eucData.updateDelay;
+    if (vescData.wheelName == null && delegate != null && usePS) {
+      timeOut = timeOut - vescData.updateDelay;
       if (timeOut <= 0) {
         var profile = AppStorage.getSetting("defaultProfile");
         delegate.setSettings(profile);
       }
     }
 
-    if (eucData.paired == true && eucData.wheelName != null) {
+    if (vescData.paired == true && vescData.wheelName != null) {
       // automatic recording ------------------
       // a bit hacky maybe ...
-      if (eucData.activityAutorecording == true) {
+      if (vescData.activityAutorecording == true) {
         if (delegate != null && activityRecordView == null) {
           // System.println("initialize autorecording");
           activityRecordView = delegate.getActivityView();
@@ -93,7 +93,8 @@ class GarminEUCApp extends Application.AppBase {
         ) {
           //enable sensor first ?
           activityRecordView.enableGPS();
-          activityRecordingDelay = activityRecordingDelay - eucData.updateDelay;
+          activityRecordingDelay =
+            activityRecordingDelay - vescData.updateDelay;
           //force initialization
           activityRecordView.initialize();
           if (activityRecordingDelay <= 0) {
@@ -107,11 +108,11 @@ class GarminEUCApp extends Application.AppBase {
       }
       // -------------------------
       //attributing here to avoid multiple calls
-      eucData.correctedSpeed = eucData.getCorrectedSpeed();
-      eucData.correctedTotalDistance = eucData.getCorrectedTotalDistance();
-      eucData.correctedTripDistance = eucData.getCorrectedTripDistance();
-      eucData.DisplayedTemperature = eucData.getTemperature();
-      eucData.PWM = eucData.getPWM();
+      vescData.correctedSpeed = vescData.getCorrectedSpeed();
+      vescData.correctedTotalDistance = vescData.getCorrectedTotalDistance();
+      vescData.correctedTripDistance = vescData.getCorrectedTripDistance();
+      vescData.DisplayedTemperature = vescData.getTemperature();
+      vescData.PWM = vescData.getPWM();
       EUCAlarms.speedAlarmCheck();
       if (delegate.getMenu2Delegate().requestSubLabelsUpdate == true) {
         delegate.getMenu2Delegate().updateSublabels();
@@ -120,14 +121,14 @@ class GarminEUCApp extends Application.AppBase {
       if (rideStats.showAverageMovingSpeedStatistic) {
         rideStats.avgSpeed();
         rideStats.statsArray[statsIndex] =
-          "Avg Spd: " + valueRound(eucData.avgMovingSpeed, "%.1f").toString();
+          "Avg Spd: " + valueRound(vescData.avgMovingSpeed, "%.1f").toString();
         //System.println(rideStats.statsArray[statsIndex]);
         statsIndex++;
       }
       if (rideStats.showTopSpeedStatistic) {
         rideStats.topSpeed();
         rideStats.statsArray[statsIndex] =
-          "Top Spd: " + valueRound(eucData.topSpeed, "%.1f").toString();
+          "Top Spd: " + valueRound(vescData.topSpeed, "%.1f").toString();
         //System.println(rideStats.statsArray[statsIndex]);
         statsIndex++;
       }
@@ -135,27 +136,27 @@ class GarminEUCApp extends Application.AppBase {
         rideStats.watchBatteryUsage();
         rideStats.statsArray[statsIndex] =
           "Wtch btry/h: " +
-          valueRound(eucData.watchBatteryUsage, "%.1f").toString();
+          valueRound(vescData.watchBatteryUsage, "%.1f").toString();
         //System.println(rideStats.statsArray[statsIndex]);
         statsIndex++;
       }
       if (rideStats.showTotalDistance) {
         rideStats.statsArray[statsIndex] =
           "Tot dist: " +
-          valueRound(eucData.correctedTotalDistance, "%.1f").toString();
+          valueRound(vescData.correctedTotalDistance, "%.1f").toString();
         //System.println(rideStats.statsArray[statsIndex]);
         statsIndex++;
       }
       if (rideStats.showTripDistance) {
         rideStats.statsArray[statsIndex] =
           "Trip dist: " +
-          valueRound(eucData.correctedTripDistance, "%.1f").toString();
+          valueRound(vescData.correctedTripDistance, "%.1f").toString();
         //System.println(rideStats.statsArray[statsIndex]);
         statsIndex++;
       }
       if (rideStats.showVoltage) {
         rideStats.statsArray[statsIndex] =
-          "voltage: " + valueRound(eucData.getVoltage(), "%.2f").toString();
+          "voltage: " + valueRound(vescData.getVoltage(), "%.2f").toString();
         //System.println(rideStats.statsArray[statsIndex]);
         statsIndex++;
       }
@@ -168,7 +169,7 @@ class GarminEUCApp extends Application.AppBase {
         statsIndex++;
       }
       if (rideStats.showProfileName) {
-        rideStats.statsArray[statsIndex] = "EUC: " + eucData.wheelName;
+        rideStats.statsArray[statsIndex] = "EUC: " + vescData.wheelName;
         //System.println(rideStats.statsArray[statsIndex]);
         statsIndex++;
       }
@@ -209,15 +210,19 @@ class GarminEUCApp extends Application.AppBase {
     //System.println("array size:" + rideStats.statsArray.size());
   }
   function setGlobalSettings() {
-    eucData.useMiles = AppStorage.getSetting("useMiles");
-    eucData.useFahrenheit = AppStorage.getSetting("useFahrenheit");
+    vescData.displayData = AppStorage.getSetting("displayData");
+    vescData.useMiles = AppStorage.getSetting("useMiles");
+    vescData.useFahrenheit = AppStorage.getSetting("useFahrenheit");
 
-    eucData.updateDelay = AppStorage.getSetting("updateDelay");
-    eucData.debug = AppStorage.getSetting("debugMode");
-    eucData.activityAutorecording = AppStorage.getSetting(
+    vescData.updateDelay = AppStorage.getSetting("updateDelay");
+    vescData.debug = AppStorage.getSetting("debugMode");
+    if (vescData.displayData == true) {
+      vescData.debug = true;
+    }
+    vescData.activityAutorecording = AppStorage.getSetting(
       "activityRecordingOnStartup"
     );
-    eucData.activityAutosave = AppStorage.getSetting("activitySavingOnExit");
+    vescData.activityAutosave = AppStorage.getSetting("activitySavingOnExit");
 
     rideStats.showAverageMovingSpeedStatistic = AppStorage.getSetting(
       "averageMovingSpeedStatistic"

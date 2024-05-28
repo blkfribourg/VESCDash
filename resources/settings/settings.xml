@@ -104,6 +104,13 @@
                 type="boolean"
             />
         </setting>
+        <setting
+            propertyKey="@Properties.displayData"
+            title="@Strings.displayData">
+            <settingConfig
+                type="boolean"
+            />
+        </setting>
          <setting
             propertyKey="@Properties.useMiles"
             title="@Strings.useMiles">

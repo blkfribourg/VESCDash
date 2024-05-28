@@ -11,7 +11,7 @@ class GarminEUCMenu2Delegate_generic extends WatchUi.Menu2InputDelegate {
   private var menu as CheckboxMenu?;
   private var delay = 200;
   var requestSubLabelsUpdate = false;
-  private var subLabelsRefreshDuration = 2000 / eucData.updateDelay; // ~2 sec
+  private var subLabelsRefreshDuration = 2000 / vescData.updateDelay; // ~2 sec
   var main_view;
   var EUCSettingsDict;
   var EUCConfig;
@@ -144,10 +144,10 @@ class GarminEUCMenu2Delegate_generic extends WatchUi.Menu2InputDelegate {
   }
   function sendCommand(fromMenu, cmd) {
     /*
-    if (eucData.wheelBrand == 4 || eucData.wheelBrand == 5) {
+    if (vescData.wheelBrand == 4 || vescData.wheelBrand == 5) {
       if (
         EUCSettingsDict.getConfigToLock().indexOf(fromMenu) != -1 &&
-        eucData.correctedSpeed > 2
+        vescData.correctedSpeed > 2
       ) {
         //moving and locked settting
       } else {
@@ -248,7 +248,7 @@ class GarminEUCMenu2Delegate_generic extends WatchUi.Menu2InputDelegate {
     //Set light mode
     //System.println("empty_frame: " + cmd_frame.toString());
     if (parentMenu.equals("Lights")) {
-      if (eucData.model.equals("V11")) {
+      if (vescData.model.equals("V11")) {
         var data = [0xaa, 0xaa, 0x14, 0x03, 0x60, 0x50, 0x00, 0x00]b;
         data[6] = cmd.toNumber();
         data[7] = xorChkSum(data.slice(0, data.size() - 1));
@@ -258,7 +258,7 @@ class GarminEUCMenu2Delegate_generic extends WatchUi.Menu2InputDelegate {
           eucBleDelegate.getPMService()
         );
       }
-      if (eucData.model.equals("V12")) {
+      if (vescData.model.equals("V12")) {
         var data = [0xaa, 0xaa, 0x14, 0x04, 0x60, 0x50, 0x00, 0x00, 0x00]b; // Thanks Seba ;)
         if (cmd.toNumber() == 0) {
           data[6] = 0x00;

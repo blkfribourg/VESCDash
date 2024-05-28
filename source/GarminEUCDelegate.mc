@@ -53,7 +53,7 @@ class GarminEUCDelegate extends WatchUi.BehaviorDelegate {
     );
 
     if (keyEvent.getKey().equals(WatchUi.KEY_ESC)) {
-      var message = "Exit WheelDash?";
+      var message = "Exit VESCDash?";
       var dialog = new WatchUi.Confirmation(message);
       var confirmDelegate = new MyConfirmationDelegate();
       WatchUi.pushView(dialog, confirmDelegate, WatchUi.SLIDE_IMMEDIATE);
@@ -76,14 +76,12 @@ class GarminEUCDelegate extends WatchUi.BehaviorDelegate {
       WatchUi.SLIDE_UP
     ); // Switch to activity view
   }
-  function goToDFlikeView(){
-     DFlikeView = new VESCDashDFView();
-     
-     WatchUi.pushView(
-      DFlikeView,
-      self,
-      WatchUi.SLIDE_UP
-    );
+  function goToDFlikeView() {
+    /*
+    DFlikeView = new VESCDashDFView();
+
+    WatchUi.pushView(DFlikeView, self, WatchUi.SLIDE_UP);
+    */
   }
   function getMenu2Delegate() {
     return menu2Delegate;

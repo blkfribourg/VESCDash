@@ -52,7 +52,7 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
     viewInit();
   }
   function viewInit() {
-    if (eucData.debug == true) {
+    if (vescData.debug == true) {
       mainView = new GarminEUCDebugView();
       mainView.setBleDelegate(eucBleDelegate);
     } else {
@@ -139,37 +139,39 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
     profileNb = profiles.indexOf(profileName) + 1;
 
     if (profileNb == 1) {
-      eucData.maxDisplayedSpeed = AppStorage.getSetting("maxSpeed_p1");
-      eucData.mainNumber = AppStorage.getSetting("mainNumber_p1");
-      eucData.topBar = AppStorage.getSetting("topBar_p1");
+      vescData.maxDisplayedSpeed = AppStorage.getSetting("maxSpeed_p1");
+      vescData.mainNumber = AppStorage.getSetting("mainNumber_p1");
+      vescData.topBar = AppStorage.getSetting("topBar_p1");
 
-      eucData.orangeColoringThreshold = AppStorage.getSetting(
+      vescData.orangeColoringThreshold = AppStorage.getSetting(
         "orangeColoringThreshold_p1"
       );
-      eucData.redColoringThreshold = AppStorage.getSetting(
+      vescData.redColoringThreshold = AppStorage.getSetting(
         "redColoringThreshold_p1"
       );
 
-      eucData.currentCorrection = AppStorage.getSetting("currentCorrection_p1");
-      eucData.maxTemperature = AppStorage.getSetting("maxTemperature_p1");
+      vescData.currentCorrection = AppStorage.getSetting(
+        "currentCorrection_p1"
+      );
+      vescData.maxTemperature = AppStorage.getSetting("maxTemperature_p1");
 
-      eucData.voltage_scaling = AppStorage.getSetting(
+      vescData.voltage_scaling = AppStorage.getSetting(
         "voltageCorrectionFactor_p1"
       );
-      eucData.sagThreshold = AppStorage.getSetting(
+      vescData.sagThreshold = AppStorage.getSetting(
         "voltageSagIndicatorThresh_p1"
       );
-      eucData.speedCorrectionFactor = AppStorage.getSetting(
+      vescData.speedCorrectionFactor = AppStorage.getSetting(
         "speedCorrectionFactor_p1"
       );
 
-      eucData.alarmThreshold_PWM = AppStorage.getSetting(
+      vescData.alarmThreshold_PWM = AppStorage.getSetting(
         "alarmThreshold_PWM_p1"
       );
-      eucData.alarmThreshold_speed = AppStorage.getSetting(
+      vescData.alarmThreshold_speed = AppStorage.getSetting(
         "alarmThreshold_speed_p1"
       );
-      eucData.alarmThreshold_temp = AppStorage.getSetting(
+      vescData.alarmThreshold_temp = AppStorage.getSetting(
         "alarmThreshold_temp_p1"
       );
 
@@ -186,43 +188,45 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
       actionButtonTrigger.beepButton =
         AppStorage.getSetting("beepButtonMap_p1");
         */
-      eucData.BLECmdDelay = AppStorage.getSetting("cmdQueueDelay_p1");
-      eucData.VESCCanId = AppStorage.getSetting("VESCCanId_p1");
-      eucData.wheelName = AppStorage.getSetting("wheelName_p1");
+      vescData.BLECmdDelay = AppStorage.getSetting("cmdQueueDelay_p1");
+      vescData.VESCCanId = AppStorage.getSetting("VESCCanId_p1");
+      vescData.wheelName = AppStorage.getSetting("wheelName_p1");
       Storage.setValue("lastProfile", profileName);
       return true;
     } else if (profileNb == 2) {
-      eucData.maxDisplayedSpeed = AppStorage.getSetting("maxSpeed_p2");
-      eucData.mainNumber = AppStorage.getSetting("mainNumber_p2");
-      eucData.topBar = AppStorage.getSetting("topBar_p2");
+      vescData.maxDisplayedSpeed = AppStorage.getSetting("maxSpeed_p2");
+      vescData.mainNumber = AppStorage.getSetting("mainNumber_p2");
+      vescData.topBar = AppStorage.getSetting("topBar_p2");
 
-      eucData.orangeColoringThreshold = AppStorage.getSetting(
+      vescData.orangeColoringThreshold = AppStorage.getSetting(
         "orangeColoringThreshold_p2"
       );
-      eucData.redColoringThreshold = AppStorage.getSetting(
+      vescData.redColoringThreshold = AppStorage.getSetting(
         "redColoringThreshold_p2"
       );
 
-      eucData.currentCorrection = AppStorage.getSetting("currentCorrection_p2");
-      eucData.maxTemperature = AppStorage.getSetting("maxTemperature_p2");
+      vescData.currentCorrection = AppStorage.getSetting(
+        "currentCorrection_p2"
+      );
+      vescData.maxTemperature = AppStorage.getSetting("maxTemperature_p2");
 
-      eucData.voltage_scaling = AppStorage.getSetting(
+      vescData.voltage_scaling = AppStorage.getSetting(
         "voltageCorrectionFactor_p2"
       );
-      eucData.sagThreshold = AppStorage.getSetting(
+      vescData.sagThreshold = AppStorage.getSetting(
         "voltageSagIndicatorThresh_p2"
       );
-      eucData.speedCorrectionFactor = AppStorage.getSetting(
+      vescData.speedCorrectionFactor = AppStorage.getSetting(
         "speedCorrectionFactor_p2"
       );
 
-      eucData.alarmThreshold_PWM = AppStorage.getSetting(
+      vescData.alarmThreshold_PWM = AppStorage.getSetting(
         "alarmThreshold_PWM_p2"
       );
-      eucData.alarmThreshold_speed = AppStorage.getSetting(
+      vescData.alarmThreshold_speed = AppStorage.getSetting(
         "alarmThreshold_speed_p2"
       );
-      eucData.alarmThreshold_temp = AppStorage.getSetting(
+      vescData.alarmThreshold_temp = AppStorage.getSetting(
         "alarmThreshold_temp_p2"
       );
 
@@ -232,50 +236,52 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
       actionButtonTrigger.DFViewButton = AppStorage.getSetting(
         "DFViewButtonButtonMap_p2"
       );
-       /*
+      /*
       actionButtonTrigger.cycleLightButton = AppStorage.getSetting(
         "cycleLightButtonMap_p2"
       );
       actionButtonTrigger.beepButton =
         AppStorage.getSetting("beepButtonMap_p2");
         */
-      eucData.BLECmdDelay = AppStorage.getSetting("cmdQueueDelay_p2");
-      eucData.VESCCanId = AppStorage.getSetting("VESCCanId_p2");
-      eucData.wheelName = AppStorage.getSetting("wheelName_p2");
+      vescData.BLECmdDelay = AppStorage.getSetting("cmdQueueDelay_p2");
+      vescData.VESCCanId = AppStorage.getSetting("VESCCanId_p2");
+      vescData.wheelName = AppStorage.getSetting("wheelName_p2");
       Storage.setValue("lastProfile", profileName);
       return true;
     } else if (profileNb == 3) {
-      eucData.maxDisplayedSpeed = AppStorage.getSetting("maxSpeed_p3");
-      eucData.mainNumber = AppStorage.getSetting("mainNumber_p3");
-      eucData.topBar = AppStorage.getSetting("topBar_p3");
+      vescData.maxDisplayedSpeed = AppStorage.getSetting("maxSpeed_p3");
+      vescData.mainNumber = AppStorage.getSetting("mainNumber_p3");
+      vescData.topBar = AppStorage.getSetting("topBar_p3");
 
-      eucData.orangeColoringThreshold = AppStorage.getSetting(
+      vescData.orangeColoringThreshold = AppStorage.getSetting(
         "orangeColoringThreshold_p3"
       );
-      eucData.redColoringThreshold = AppStorage.getSetting(
+      vescData.redColoringThreshold = AppStorage.getSetting(
         "redColoringThreshold_p3"
       );
 
-      eucData.currentCorrection = AppStorage.getSetting("currentCorrection_p3");
-      eucData.maxTemperature = AppStorage.getSetting("maxTemperature_p3");
+      vescData.currentCorrection = AppStorage.getSetting(
+        "currentCorrection_p3"
+      );
+      vescData.maxTemperature = AppStorage.getSetting("maxTemperature_p3");
 
-      eucData.voltage_scaling = AppStorage.getSetting(
+      vescData.voltage_scaling = AppStorage.getSetting(
         "voltageCorrectionFactor_p3"
       );
-      eucData.sagThreshold = AppStorage.getSetting(
+      vescData.sagThreshold = AppStorage.getSetting(
         "voltageSagIndicatorThresh_p3"
       );
-      eucData.speedCorrectionFactor = AppStorage.getSetting(
+      vescData.speedCorrectionFactor = AppStorage.getSetting(
         "speedCorrectionFactor_p3"
       );
 
-      eucData.alarmThreshold_PWM = AppStorage.getSetting(
+      vescData.alarmThreshold_PWM = AppStorage.getSetting(
         "alarmThreshold_PWM_p3"
       );
-      eucData.alarmThreshold_speed = AppStorage.getSetting(
+      vescData.alarmThreshold_speed = AppStorage.getSetting(
         "alarmThreshold_speed_p3"
       );
-      eucData.alarmThreshold_temp = AppStorage.getSetting(
+      vescData.alarmThreshold_temp = AppStorage.getSetting(
         "alarmThreshold_temp_p3"
       );
 
@@ -292,9 +298,9 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
       actionButtonTrigger.beepButton =
         AppStorage.getSetting("beepButtonMap_p3");
         */
-      eucData.BLECmdDelay = AppStorage.getSetting("cmdQueueDelay_p3");
-      eucData.VESCCanId = AppStorage.getSetting("VESCCanId_p3");
-      eucData.wheelName = AppStorage.getSetting("wheelName_p3");
+      vescData.BLECmdDelay = AppStorage.getSetting("cmdQueueDelay_p3");
+      vescData.VESCCanId = AppStorage.getSetting("VESCCanId_p3");
+      vescData.wheelName = AppStorage.getSetting("wheelName_p3");
       Storage.setValue("lastProfile", profileName);
       return true;
     } else {

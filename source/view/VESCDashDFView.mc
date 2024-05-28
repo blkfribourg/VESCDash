@@ -4,11 +4,44 @@ using Toybox.Timer;
 
 using Toybox.System;
 class VESCDashDFView extends WatchUi.View {
-  var BleDelegate;
+  hidden var field1 = "NC";
+  hidden var field2 = "NC";
+  hidden var field3 = "NC";
+  hidden var field4 = "NC";
+  hidden var field5 = "NC";
+  hidden var field6 = "NC";
+  hidden var field1_value = 0;
+  hidden var field2_value = 0;
+  hidden var field3_value = 0;
+  hidden var field4_value = 0;
+  hidden var field5_value = 0;
+  hidden var field6_value = 0;
+
+  // Set field names once to optimize ?
+  /* TODO : COMM_GET_STATS							= 128
+  request  case COMM_GET_STATS: {
+        mTimeoutStats = 0;
+        STAT_VALUES values;
+        uint32_t mask = vb.vbPopFrontUint32();
+        if (mask & ((uint32_t)1 << 0)) { values.speed_avg = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 1)) { values.speed_max = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 2)) { values.power_avg = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 3)) { values.power_max = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 4)) { values.current_avg = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 5)) { values.current_max = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 6)) { values.temp_mos_avg = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 7)) { values.temp_mos_max = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 8)) { values.temp_motor_avg = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 9)) { values.temp_motor_max = vb.vbPopFrontDouble32Auto(); }
+        if (mask & ((uint32_t)1 << 10)) { values.count_time = vb.vbPopFrontDouble32Auto(); }
+        emit statsRx(values, mask);
+    } break;
+*/
+  function getFieldValues() {}
+
   function initialize() {
     View.initialize();
   }
-  
 
   // Called when this View is brought to the foreground. Restore
   // the state of this View and prepare it to be shown. This includes
@@ -17,147 +50,164 @@ class VESCDashDFView extends WatchUi.View {
 
   // Update the view
   function onUpdate(dc) {
-    if (BleDelegate != null) {
-      var alignAxe = dc.getWidth() / 5;
-      var space = dc.getHeight() / 10;
-      var yGap = dc.getHeight() / 8;
-      var xGap = dc.getWidth() / 12;
+    var gap;
+    var scr_height = dc.getHeight();
+    var scr_width = dc.getWidth();
+    var fieldNameFont = Graphics.FONT_XTINY;
+    var fieldValueFont = Graphics.FONT_XTINY;
+    var fieldNameFontHeight = Graphics.getFontHeight(fieldNameFont);
+    var fieldValueFontHeight = Graphics.getFontHeight(fieldValueFont);
+    if (scr_width < 260) {
+      gap = dc.getWidth() / 80;
+      fieldNameFontHeight = fieldNameFontHeight - 4;
+    } else {
+      gap = dc.getWidth() / 40;
+    }
+    dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+    dc.clear();
 
-      dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-      dc.clear();
-      dc.drawText(
-        alignAxe,
-        yGap,
-        Graphics.FONT_TINY,
-        "Spd: " + valueRound(eucData.speed, "%.1f"),
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
+    if (vescData.drawLines) {
+      dc.setColor(vescData.linesColor, Graphics.COLOR_BLACK);
+      dc.drawLine(gap, scr_height / 2, scr_width - gap, scr_height / 2);
+      dc.drawLine(
+        scr_width / 2,
+        2 * gap + (fieldNameFontHeight + fieldValueFontHeight),
+        scr_width / 2,
+        scr_height / 2 - 2 * gap
       );
-      dc.drawText(
-        alignAxe - xGap,
-        space + yGap,
-        Graphics.FONT_TINY,
-        "Vlt: " + valueRound(eucData.voltage, "%.1f"),
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-      );
-      dc.drawText(
-        alignAxe - 2 * xGap,
-        2 * space + yGap,
-        Graphics.FONT_TINY,
-        "Cur: " + valueRound(eucData.current, "%.1f"),
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-      );
-      dc.drawText(
-        alignAxe - 2 * xGap,
-        3 * space + yGap,
-        Graphics.FONT_TINY,
-        "bat%: " + valueRound(eucData.getBatteryPercentage(), "%.1f"),
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-      );
-      dc.drawText(
-        alignAxe - 2 * xGap,
-        4 * space + yGap,
-        Graphics.FONT_TINY,
-        "tDist: " + valueRound(eucData.totalDistance, "%.1f"),
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-      );
-      dc.drawText(
-        alignAxe - 2 * xGap,
-        5 * space + yGap,
-        Graphics.FONT_TINY,
-        "PWM: " + valueRound(eucData.hPWM, "%.1f"),
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-      );
-      dc.drawText(
-        alignAxe - xGap,
-        6 * space + yGap,
-        Graphics.FONT_TINY,
-        "data/s: " + valueRound(eucData.BLEReadRate, "%.1f"),
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-      );
-      dc.drawText(
-        alignAxe,
-        7 * space + yGap,
-        Graphics.FONT_TINY,
-        "runId: " + BleDelegate.queue.run_id,
-        Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
+      dc.drawLine(
+        scr_width / 2,
+        scr_height / 2 + 2 * gap,
+        scr_width / 2,
+        scr_height - 2 * gap - (fieldNameFontHeight + fieldValueFontHeight)
       );
     }
+    if (vescData.paired == true) {
+      dc.setColor(vescData.txtColor, Graphics.COLOR_TRANSPARENT);
+    } else {
+      dc.setColor(vescData.txtColor_unpr, Graphics.COLOR_TRANSPARENT);
+    }
 
-    /*
-    if (eucData.wheelBrand == 3) {
-      if (BleDelegate != null) {
-        var alignAxe = dc.getWidth() / 5;
-        var space = dc.getHeight() / 10;
-        var yGap = dc.getHeight() / 8;
-        var xGap = dc.getWidth() / 12;
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-        dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
-        dc.drawRectangle(0, 0, dc.getWidth(), dc.getHeight());
-        dc.drawText(
-          alignAxe,
-          yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message1,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe - xGap,
-          space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message2,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe - 2 * xGap,
-          2 * space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message3,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe - 2 * xGap,
-          3 * space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message4,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe - 2 * xGap,
-          4 * space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message5,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe - 2 * xGap,
-          5 * space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message6,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe - xGap,
-          6 * space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message7,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe,
-          7 * space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message8,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-        dc.drawText(
-          alignAxe + xGap,
-          8 * space + yGap,
-          Graphics.FONT_XTINY,
-          BleDelegate.message9,
-          Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER
-        );
-      }
-    }*/
+    dc.drawText(
+      scr_width / 2,
+      gap,
+      fieldNameFont,
+      field1,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+    dc.drawText(
+      scr_width / 2,
+      gap + fieldNameFontHeight,
+      fieldValueFont,
+      field1_value,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+
+    dc.drawText(
+      scr_width / 4,
+      scr_height / 4,
+      fieldNameFont,
+      field2,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+    dc.drawText(
+      scr_width / 4,
+      scr_height / 4 + fieldNameFontHeight,
+      fieldValueFont,
+      field2_value,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+
+    dc.drawText(
+      scr_width - scr_width / 4,
+      scr_height / 4,
+      fieldNameFont,
+      field3,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+    dc.drawText(
+      scr_width - scr_width / 4,
+      scr_height / 4 + fieldNameFontHeight,
+      fieldValueFont,
+      field3_value,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+
+    dc.drawText(
+      scr_width / 4,
+      scr_height / 2 + gap,
+      fieldNameFont,
+      field4,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+    dc.drawText(
+      scr_width / 4,
+      scr_height / 2 + gap + fieldNameFontHeight,
+      fieldValueFont,
+      field4_value,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+
+    dc.drawText(
+      scr_width - scr_width / 4,
+      scr_height / 2 + gap,
+      fieldNameFont,
+      field5,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+    dc.drawText(
+      scr_width - scr_width / 4,
+      scr_height / 2 + gap + fieldNameFontHeight,
+      fieldValueFont,
+      field5_value,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+
+    dc.drawText(
+      scr_width / 2,
+      scr_height - gap - fieldNameFontHeight - fieldValueFontHeight,
+      fieldNameFont,
+      field6,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+
+    dc.drawText(
+      scr_width / 2,
+      scr_height - gap - fieldValueFontHeight,
+      fieldValueFont,
+      field6_value,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
+    if (!EUCAlarms.alarmType.equals("none")) {
+      var textAlert = "!! Alarm: " + EUCAlarms.alarmType + " !!";
+      dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+      dc.fillRectangle(
+        0,
+        scr_width / 2 - Graphics.getFontHeight(Graphics.FONT_SMALL) / 2,
+        scr_width,
+        Graphics.getFontHeight(Graphics.FONT_SMALL)
+      );
+      dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+      dc.drawLine(
+        0,
+        scr_width / 2 - Graphics.getFontHeight(Graphics.FONT_SMALL) / 2 - 1,
+        scr_width,
+        scr_width / 2 - Graphics.getFontHeight(Graphics.FONT_SMALL) / 2 - 1
+      );
+      dc.drawLine(
+        0,
+        scr_width / 2 + Graphics.getFontHeight(Graphics.FONT_SMALL) / 2 + 1,
+        scr_width,
+        scr_width / 2 + Graphics.getFontHeight(Graphics.FONT_SMALL) / 2 + 1
+      );
+      dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_BLACK);
+      dc.drawText(
+        scr_width / 2,
+        scr_width / 2 - Graphics.getFontHeight(Graphics.FONT_SMALL) / 2,
+        Graphics.FONT_SMALL,
+        textAlert,
+        Graphics.TEXT_JUSTIFY_CENTER
+      );
+    }
   }
 }

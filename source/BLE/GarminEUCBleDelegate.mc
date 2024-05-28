@@ -24,15 +24,11 @@ class eucBLEDelegate extends Ble.BleDelegate {
   var message7 = "";
   var message8 = "";
   var message9 = "";
-  var currentState="";
+  var currentState = "";
   var bleCharReadNb = 0;
   var timeWhenConnected;
-  /*
-  var frame1 = [
-    170, 85, 75, 83, 45, 83, 50, 50, 45, 48, 50, 51, 49, 0, 0, 0, 187, 20, 138,
-    90, 90,
-  ];
-*/
+  var receivedPacket;
+
   function initialize(pm, _profileNb, q, _decoder) {
     //System.println("init");
     message1 = "initializeBle";
@@ -42,11 +38,82 @@ class eucBLEDelegate extends Ble.BleDelegate {
     //char = profileManager.EUC_CHAR;
     queue = q;
     decoder = _decoder;
-    currentState="init";
+    currentState = "init";
+    /*
+    var VESCTestPacket1 = [
+      0x02, 0x46, 0x2f, 0x01, 0x29, 0x00, 0xf9, 0x00, 0x00, 0x00, 0x00, 0x00,
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    ]b;
+
+    var VESCTestPacket2 = [
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xf0, 0x03, 0xdf, 0x00, 0x00, 0x00,
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    ]b;
+    var VESCTestPacket3 = [
+      0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00,
+      0xea, 0x0a, 0x9f, 0x1d, 0xc0, 0x00, 0x1c, 0x01,
+    ]b;
+    var VESCTestPacket4 = [
+      0x00, 0x08, 0x90, 0xd8, 0x00, 0x06, 0x65, 0xbf, 0x00, 0x02, 0x3e, 0x45,
+      0x48, 0xae, 0x03,
+    ]b;
+
+    decoder.frameBuilder(self, VESCTestPacket1);
+    decoder.frameBuilder(self, VESCTestPacket2);
+    decoder.frameBuilder(self, VESCTestPacket3);
+    decoder.frameBuilder(self, VESCTestPacket4);
+
+    var ubox1 = [0x02, 0x46]b;
+    var ubox2 = [
+      0x2f, 0x00, 0xd5, 0xff, 0x14, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00,
+      0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00,
+    ]b;
+    var ubox3 = [
+      0x00, 0x00, 0x00, 0x02, 0x6c, 0x02, 0x56, 0x00, 0x00, 0x00, 0x00, 0x00,
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3c, 0x00,
+    ]b;
+    var ubox4 = [
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x01, 0x13, 0x00,
+      0xdb, 0xb9, 0xfa, 0x00, 0x05, 0x01, 0x00, 0x06,
+    ]b;
+    var ubox5 = [0x10, 0xb3, 0x00, 0x00, 0x05, 0x6f, 0x00, 0x00, 0xf9, 0xdd]b;
+    var ubox6 = [0x6f, 0xc9, 0x03]b;
+
+    decoder.frameBuilder(self, ubox1);
+    decoder.frameBuilder(self, ubox2);
+    decoder.frameBuilder(self, ubox3);
+    decoder.frameBuilder(self, ubox4);
+    decoder.frameBuilder(self, ubox5);
+    decoder.frameBuilder(self, ubox6);
+
+    var ubox1 = [0x02, 0x46]b;
+
+    var ubox3 = [
+      0x2f, 0x00, 0xd3, 0x00, 0xd4, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+      0x00, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00,
+    ]b;
+    var ubox4 = [
+      0x00, 0x00, 0x00, 0x01, 0xc9, 0x01, 0xf6, 0x00, 0x00, 0x00, 0x00, 0x00,
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    ]b;
+    var ubox5 = [
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x09,
+      0xa7, 0xec, 0x70, 0x00, 0x1a, 0x02, 0x00, 0x04,
+    ]b;
+    var ubox6 = [0xa1, 0x54, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0xcf, 0x4a]b;
+
+    var ubox7 = [07, 0xb5, 0x03]b;
+    decoder.frameBuilder(self, ubox1);
+
+    decoder.frameBuilder(self, ubox3);
+    decoder.frameBuilder(self, ubox4);
+    decoder.frameBuilder(self, ubox5);
+    decoder.frameBuilder(self, ubox6);
+    decoder.frameBuilder(self, ubox7);
     /*
     char_w = profileManager.EUC_CHAR_W;
     // VESC COMM VAL SETUP:
-    if (eucData.VESCCanId != 0) {
+    if (vescData.VESCCanId != 0) {
       queue.reqLiveData = [char_w, queue.C_WRITENR, packetForgeVESC(0x2f)];
 
       queue.sendAlive = [char_w, queue.C_WRITENR, packetForgeVESC(0x1e)];
@@ -59,7 +126,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
     }
     queue.UUID = profileManager.EUC_SERVICE;
 
-    queue.delayTimer.start(method(:timerCallback), eucData.BLECmdDelay, true);
+    queue.delayTimer.start(method(:timerCallback), vescData.BLECmdDelay, true);
     //
 */
     Ble.setScanState(Ble.SCAN_STATE_SCANNING);
@@ -81,7 +148,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
 
         char_w = service.getCharacteristic(profileManager.EUC_CHAR_W);
         // VESC COMM VAL SETUP:
-        if (eucData.VESCCanId != 0) {
+        if (vescData.VESCCanId != 0) {
           queue.reqLiveData = [char_w, queue.C_WRITENR, packetForgeVESC(0x2f)];
 
           // queue.sendAlive = [char_w, queue.C_WRITENR, packetForgeVESC(0x1e)];
@@ -98,25 +165,25 @@ class eucBLEDelegate extends Ble.BleDelegate {
         cccd = char.getDescriptor(Ble.cccdUuid());
         cccd.requestWrite([0x01, 0x00]b);
         message4 = "characteristic notify enabled";
-        eucData.paired = true;
+        vescData.paired = true;
         message5 = "BLE paired";
-        eucData.timeWhenConnected = new Time.Moment(Time.now().value());
+        vescData.timeWhenConnected = new Time.Moment(Time.now().value());
 
         /* NOT WORKING
         if (device.getName() != null || device.getName().length != 0) {
-          eucData.name = device.getName();
+          vescData.name = device.getName();
         } else {
-          eucData.name = "Unknown";
+          vescData.name = "Unknown";
         }*/
       } else {
         message6 = "unable to pair";
         Ble.unpairDevice(device);
-        eucData.paired = false;
+        vescData.paired = false;
       }
     } else {
       Ble.unpairDevice(device);
       Ble.setScanState(Ble.SCAN_STATE_SCANNING);
-      eucData.paired = false;
+      vescData.paired = false;
     }
   }
   function isFirstConnection() {
@@ -179,7 +246,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
   }
   //! @param scanResults An iterator of new scan results
   function onScanResults(scanResults as Ble.Iterator) {
-    currentState="scanning";
+    currentState = "scanning";
     if (isFirst) {
       var wheelFound = false;
       for (
@@ -191,7 +258,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
           var advName = result.getDeviceName();
           if (advName != null) {
             if (knownVESCName(advName) == true) {
-              eucData.model = advName;
+              vescData.model = advName;
               wheelFound = true;
             } else {
               wheelFound = contains(
@@ -232,15 +299,20 @@ class eucBLEDelegate extends Ble.BleDelegate {
     // If KS fire queue
 
     if (char != null) {
-      queue.delayTimer.start(method(:timerCallback), eucData.BLECmdDelay, true);
+      queue.delayTimer.start(
+        method(:timerCallback),
+        vescData.BLECmdDelay,
+        true
+      );
     }
   }
 
   function onCharacteristicWrite(desc, status) {}
 
   function onCharacteristicChanged(char, value) {
-    currentState= "CharChanged";
-
+    receivedPacket = value;
+    currentState = "CharChanged";
+    System.println("TX: " + value);
     decoder.frameBuilder(self, value);
   }
 
@@ -292,7 +364,7 @@ class eucBLEDelegate extends Ble.BleDelegate {
   }
 
   function packetForgeVESC(hexcmd) {
-    var cmd = [0x22, eucData.VESCCanId.toNumber(), hexcmd]b;
+    var cmd = [0x22, vescData.VESCCanId.toNumber(), hexcmd]b;
     var end = CRC16.crc16(cmd);
     end = end.addAll([0x03]b);
     var pre = [0x02, 0x03]b;

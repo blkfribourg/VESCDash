@@ -46,7 +46,7 @@ class connectionView extends WatchUi.View {
   // Update the view
   function onUpdate(dc) {
     //System.println("first");
-    if (eucData.paired == true) {
+    if (vescData.paired == true) {
       textToDisplay.setText(Lang.format(cStrings[:connected], [profileNb]));
       /*
       textToDisplay =
@@ -54,7 +54,7 @@ class connectionView extends WatchUi.View {
         profileNb +
         " connected !\n\nSaving wheel unique identifier";
         */
-      popViewDelay = popViewDelay - eucData.updateDelay;
+      popViewDelay = popViewDelay - vescData.updateDelay;
 
       if (popViewDelay < 0) {
         WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);

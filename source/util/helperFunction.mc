@@ -131,5 +131,8 @@ function knownVESCName(name) {
   if (name.substring(0, 12).equals("Little FOCer")) {
     return true;
   }
+  if (name.substring(0, 8).equals("Focstrot")) {
+    return true;
+  }
   return false;
 }

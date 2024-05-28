@@ -4,16 +4,17 @@
     <property id="activityRecordingOnStartup" type="boolean">false</property>
     <property id="activitySavingOnExit" type="boolean">false</property>
     <property id="averageMovingSpeedStatistic" type="boolean">false</property>
-    <property id="topSpeedStatistic" type="boolean">false</property>
+    <property id="topSpeedStatistic" type="boolean">true</property>
     <property id="watchBatteryConsumptionStatistic" type="boolean">false</property>
-    <property id="totalDistanceStatistic" type="boolean">false</property>
+    <property id="totalDistanceStatistic" type="boolean">true</property>
     <property id="tripDistanceStatistic" type="boolean">false</property>
-    <property id="voltageStatistic" type="boolean">false</property>
+    <property id="voltageStatistic" type="boolean">true</property>
     <property id="watchBatteryStatistic" type="boolean">false</property>
     <property id="profileName" type="boolean">false</property>
     <property id="defaultProfile" type="number">1</property>
     <property id="useProfileSelector" type="boolean">true</property>
-    <property id="debugMode" type="boolean">true</property>
+    <property id="debugMode" type="boolean">false</property>
+    <property id="displayData" type="boolean">false</property>
     <property id ="useMiles" type="boolean">false</property>
     <property id ="useFahrenheit" type="boolean">false</property>
     
