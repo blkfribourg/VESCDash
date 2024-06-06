@@ -5,7 +5,7 @@
         Use "Monkey C: Edit Application" from the Visual Studio Code command palette
         to update the application attributes.
     -->
-    <iq:application id="c7794f0b-36c5-42a1-9c59-fe09ef0001c8" type="watch-app" name="@Strings.AppName" entry="GarminEUCApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
+    <iq:application id="7ef3c96d-b041-4f4f-a409-3589dbccc123" type="watch-app" name="@Strings.AppName" entry="GarminEUCApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.1.0">
         <!-- 
              app id  : c7794f0b-36c5-42a1-9c59-fe09ef0001c8
             -->

@@ -55,17 +55,13 @@ module vescData {
   var correctedTotalDistance = 0.0;
   var PWM = 0.0;
   var rpm;
-  var pedalMode = "0";
-  var speedAlertMode = "0";
-  var rollAngleMode = "0";
-  var speedUnitMode = 0;
-  var ledMode = "0";
+
   var avgMovingSpeed = 0.0;
   var topSpeed = 0.0;
   var watchBatteryUsage = 0.0;
   var hPWM = 0.0;
   var currentCorrection;
-  var gothPWN = false;
+
   var battery = 0.0;
   var amp_hours;
   var amp_hours_charged;
@@ -80,37 +76,13 @@ module vescData {
   var num_vescs;
   var battery_wh;
   var uptime_ms;
-  // Veteran specific
-  var version = 0;
-
-  // Kingsong specific
-  var KSName = "";
-  var KSSerial;
-  var KS18L_scale_toggle = false;
-  var mode = 0;
-  var fanStatus;
-  var chargingStatus;
-  var temperature2 = 0;
-  var cpuLoad = 0;
-  var KSVoiceMode = false;
-  // var output;
-  var speedLimit = 0;
-  var KSMaxSpeed;
-  var KSAlarm3Speed;
-  var KSAlarm2Speed;
-  var KSAlarm1Speed;
-
-  // Kingsong & inmotion :
-  var model = "none";
-
-  //inmotion specific
-  var imHornSound = 0x18;
-  var batteryTemp1 = 0.0;
-  var batteryTemp2 = 0.0;
 
   //VESC :
   var VESCCanId = 0;
   var displayData = false;
+
+  var displayWind;
+  var displayNorth;
 
   function getBatteryPercentage() {
     // using better battery formula from wheellog

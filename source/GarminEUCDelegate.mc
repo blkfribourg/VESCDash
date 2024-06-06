@@ -77,11 +77,9 @@ class GarminEUCDelegate extends WatchUi.BehaviorDelegate {
     ); // Switch to activity view
   }
   function goToDFlikeView() {
-    /*
-    DFlikeView = new VESCDashDFView();
+    DFlikeView = new DFView();
 
     WatchUi.pushView(DFlikeView, self, WatchUi.SLIDE_UP);
-    */
   }
   function getMenu2Delegate() {
     return menu2Delegate;
