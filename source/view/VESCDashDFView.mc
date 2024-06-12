@@ -1,3 +1,4 @@
+/*
 import Toybox.Graphics;
 import Toybox.WatchUi;
 using Toybox.Timer;
@@ -7,6 +8,7 @@ using Toybox.System;
 using Toybox.Time.Gregorian;
 import Toybox.Position;
 class DFView extends WatchUi.View {
+
   hidden var hasHr = null;
   hidden var hasWX = null;
   hidden var reqPos = false;
@@ -873,3 +875,4 @@ class DFView extends WatchUi.View {
     ];
   }
 }
+*/

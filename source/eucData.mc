@@ -61,6 +61,7 @@ module vescData {
   var watchBatteryUsage = 0.0;
   var hPWM = 0.0;
   var currentCorrection;
+  var model = "";
 
   var battery = 0.0;
   var amp_hours;

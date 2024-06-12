@@ -1,3 +1,4 @@
+/*
 class gotwayConfig {
   function getWheelSettingsStatus() {
     return [
@@ -100,13 +101,13 @@ class gotwayConfig {
         };
         */
 
-  /* No angle status feedback
+/* No angle status feedback
         var dictCutoffAngleStatus={
             "High" => "2",
             "Medium" => "1",
             "Low" => "0"
         };
-*/
+
   var dictPedalStatus = {
     "Hard" => "2",
     "Medium" => "1",
@@ -257,7 +258,7 @@ class inmotionConfig {
   };
   // volume, pedal tilt and pedal sensitivity to implement later (need a custom number picker, I don't like garmin picker implementation)
 }
-
+*/
 class dummyConfig {
   function getWheelSettingsStatus() {
     return [];

@@ -25,7 +25,7 @@ class ActionButton {
       }
 
       if (DFViewButton == keyNumber) {
-        _mainDelegate.goToDFlikeView();
+        // _mainDelegate.goToDFlikeView();
       }
       //if (bleDelegate != null && vescData.paired == true) {
       if (cycleLightButton == keyNumber) {
