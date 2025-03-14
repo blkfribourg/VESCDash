@@ -34,14 +34,16 @@ class GarminEUCDelegate extends WatchUi.BehaviorDelegate {
     WatchUi.pushView(menu, menu2Delegate, WatchUi.SLIDE_UP);
     return true;
   }
-  /*
+
   function onSwipe(swipeEvent as WatchUi.SwipeEvent) {
     if (swipeEvent.getDirection() == WatchUi.SWIPE_UP) {
       goToActivityView();
     }
+    if (swipeEvent.getDirection() == WatchUi.SWIPE_LEFT) {
+    }
     return true;
   }
-  */
+
   function onNextPage() as Boolean {
     return false;
   }

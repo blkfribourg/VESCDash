@@ -83,7 +83,7 @@ class PSMenuDelegate extends WatchUi.Menu2InputDelegate {
     if (eucBleDelegate.isFirst == false) {
       //System.println("not first");
 
-      WatchUi.pushView(mainView, mainViewdelegate, WatchUi.SLIDE_IMMEDIATE);
+      WatchUi.switchToView(mainView, mainViewdelegate, WatchUi.SLIDE_IMMEDIATE);
     } else {
       //  System.println("first");
       connView = new connectionView(eucBleDelegate, profileNb, self);
